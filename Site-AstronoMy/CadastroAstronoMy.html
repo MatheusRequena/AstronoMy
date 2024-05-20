@@ -8,38 +8,47 @@
 </head>
 
 <body>
+
+    <!-- Conteúdo da Tela -->
+    <!-- Container de Cadastro -->
     <div>
         <h1>BOAS VINDAS TERRÁQUEO</h1>
         <h3>Cadastre-se agora!</h3>
         <br>
         <div>
-            <label>Nome:</label> <br>
-            <input type="text" id="inputNome">
+            <label>Nome:</label> <br> <!-- Campo Nome -->
+            <input type="text" placeholder="Informe seu nome" id="inputNome">
+            <div class="aviso"></div>
         </div>
         <br>
         <div>
-            <label>Email:</label> <br>
-            <input type="text" id="inputEmail">
+            <label>Email:</label> <br> <!-- Campo Email -->
+            <input type="text" placeholder="Informe seu email" id="inputEmail">
+            <div class="aviso"></div>
         </div>
         <br>
         <div>
-            <label>Telefone:</label> <br>
-            <input type="text" id="inputTelefone">
+            <label>Telefone:</label> <br> <!-- Campo Telefone -->
+            <input type="number" placeholder="Informe seu telefone" id="inputTelefone">
+            <div class="aviso"></div>
         </div>
         <br>
         <div>
-            <label>Data de Nascimento:</label> <br>
-            <input type="text" id="inputNascimento">
+            <label>Data de Nascimento:</label> <br> <!-- Campo Data de Nascimento -->
+            <input type="number" placeholder="Informe quando nasceu" id="inputNascimento">
+            <div class="aviso"></div>
         </div>
         <br>
         <div>
-            <label>Senha:</label> <br>
-            <input type="text" id="inputSenha">
+            <label>Senha:</label> <br> <!-- Campo Senha -->
+            <input type="password" placeholder="Crie sua senha" id="inputSenha">
+            <div class="aviso"></div>
         </div>
         <br>
         <div>
-            <label>Confirme sua Senha:</label> <br>
-            <input type="text" id="inputConfirmacao">
+            <label>Confirme sua Senha:</label> <br> <!-- Campo Confirmação da Senha -->
+            <input type="password" placeholder="Confirme sua senha" id="inputConfirmacao">
+            <div class="aviso"></div>
         </div>
         <br>
         <button onclick="cadastrar()">CADASTRAR-SE</button>
@@ -49,7 +58,52 @@
 </html>
 
 <script>
-    function cadastrar(){
-        
+
+    // Função para cadastrar o usuário
+    function cadastrar() {
+
+        // Declaração de variáveis
+        var nome = inputNome.value;
+        var email = inputEmail.value;
+        var telefone = inputTelefone.value;
+        var nascimento = inputNascimento.value;
+        var senha = inputSenha.value;
+        var confirmacao = inputConfirmacao.value;
+
+        // Criação de variáveis para auxiliar a validação
+        // Validação do nome
+        var tamanhoNome = (nome.length >= 5) && (nome.length <= 100);
+        var nomeCompleto = nome.indexOf(" ") > 0;
+
+        // Validação do email
+        var tamanhoEmail = (email.length >= 3) && (email.length <= 320);
+        var emailReal = (email.indexOf('@') > 0) && (email.indexOf('.') > 0);
+        var regraEmail = (email.indexOf('@') <= 64) && (email.length - (email.indexOf('@') + 1) <= 255);
+
+        // Validação do telefone
+        var tamanhoTelefone = telefone.length == 9;
+
+        // Validação da data de nascimento
+        var tamanhoNascimento = nascimento.length == 8;
+        var dia = (nascimento[0] <= 3);
+        var mes = (nascimento[2] <= 1);
+        var ano = ((nascimento[4] == 1) || (nascimento[4] == 2)) && ((nascimento[5] == 0) || (nascimento[5] == 9));
+
+        // Validação da senha
+        listaNumeros = [1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 0];
+        listaMaiuscula = ['A' , 'B' , 'C' , 'D' , 'E' , 'F' , 'G' , 'H' , 'I' , 'J' , 'K' , 'L' , 'M' , 'N' , 'O' , 'P' , 'Q' , 'R' , 'S' , 'T' , 'U' , 'V' , 'W' , 'X' , 'Y' , 'Z' , 'Ç'];
+        listaMinuscula = ['a' , 'b' , 'c' , 'd' , 'e' , 'f' , 'g' , 'h' , 'i' , 'j' , 'k' , 'l' , 'm' , 'n' , 'o' , 'p' , 'q' , 'r' , 's' , 't' , 'u' , 'v' , 'w' , 'x' , 'y' , 'z' , 'ç'];
+        listaEspecial = [];
+        var tamanhoSenha = senha.length >= 8;
+        var senhaNumeros = senha.indexOf(listaNumeros);
+        var senhaMaiuscula = senha.indexOf(listaMaiuscula);
+        var senhaMinuscula = senha.indexOf(listaMinuscula);
+        var senhaEspecial = senha.indexOf(listaEspecial);
+
+        // Validação da confirmação
+        var tamanhoConfirmação = confirmacao.length >= 0;
+
+        // Validações
+
     }
 </script>
