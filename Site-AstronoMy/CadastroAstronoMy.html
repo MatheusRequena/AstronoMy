@@ -4,49 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="StyleAstronoMy.css">
     <title>AstronoMy | Cadastro</title>
 </head>
 
-<body>
+<body class="cadastro">
 
     <!-- Conteúdo da Tela -->
     <!-- Container de Cadastro -->
-    <div>
-        <h1>BOAS VINDAS TERRÁQUEO</h1>
+    <div class="container">
+        <h1>BOAS VINDAS</h1>
         <h3>Cadastre-se agora!</h3>
         <br>
-        <div>
-            <label>Nome:</label> <br> <!-- Campo Nome -->
+        <div class="campo">
+            <label>Nome:</label> <!-- Campo Nome -->
             <input type="text" placeholder="Informe seu nome" id="inputNome">
             <div class="aviso"></div>
         </div>
         <br>
-        <div>
-            <label>Email:</label> <br> <!-- Campo Email -->
+        <div class="campo">
+            <label>Email:</label> <!-- Campo Email -->
             <input type="text" placeholder="Informe seu email" id="inputEmail">
             <div class="aviso"></div>
         </div>
         <br>
-        <div>
-            <label>Telefone:</label> <br> <!-- Campo Telefone -->
+        <div class="campo">
+            <label>Telefone:</label> <!-- Campo Telefone -->
             <input type="number" placeholder="Informe seu telefone" id="inputTelefone">
             <div class="aviso"></div>
         </div>
         <br>
-        <div>
-            <label>Data de Nascimento:</label> <br> <!-- Campo Data de Nascimento -->
+        <div class="campo">
+            <label>Data de Nascimento:</label> <!-- Campo Data de Nascimento -->
             <input type="number" placeholder="Informe quando nasceu" id="inputNascimento">
             <div class="aviso"></div>
         </div>
         <br>
-        <div>
-            <label>Senha:</label> <br> <!-- Campo Senha -->
+        <div class="campo">
+            <label>Senha:</label> <!-- Campo Senha -->
             <input type="password" placeholder="Crie sua senha" id="inputSenha">
             <div class="aviso"></div>
         </div>
         <br>
-        <div>
-            <label>Confirme sua Senha:</label> <br> <!-- Campo Confirmação da Senha -->
+        <div class="campo">
+            <label>Confirme sua Senha:</label> <!-- Campo Confirmação da Senha -->
             <input type="password" placeholder="Confirme sua senha" id="inputConfirmacao">
             <div class="aviso"></div>
         </div>
@@ -90,20 +91,18 @@
         var ano = ((nascimento[4] == 1) || (nascimento[4] == 2)) && ((nascimento[5] == 0) || (nascimento[5] == 9));
 
         // Validação da senha
-        listaNumeros = [1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 0];
-        listaMaiuscula = ['A' , 'B' , 'C' , 'D' , 'E' , 'F' , 'G' , 'H' , 'I' , 'J' , 'K' , 'L' , 'M' , 'N' , 'O' , 'P' , 'Q' , 'R' , 'S' , 'T' , 'U' , 'V' , 'W' , 'X' , 'Y' , 'Z' , 'Ç'];
-        listaMinuscula = ['a' , 'b' , 'c' , 'd' , 'e' , 'f' , 'g' , 'h' , 'i' , 'j' , 'k' , 'l' , 'm' , 'n' , 'o' , 'p' , 'q' , 'r' , 's' , 't' , 'u' , 'v' , 'w' , 'x' , 'y' , 'z' , 'ç'];
-        listaEspecial = [];
+        listaNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+        listaMaiuscula = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ç'];
+        listaMinuscula = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ç'];
         var tamanhoSenha = senha.length >= 8;
-        var senhaNumeros = senha.indexOf(listaNumeros);
-        var senhaMaiuscula = senha.indexOf(listaMaiuscula);
-        var senhaMinuscula = senha.indexOf(listaMinuscula);
-        var senhaEspecial = senha.indexOf(listaEspecial);
+        var senhaNumeros = senha.indexOf(listaNumeros) > -1;
+        var senhaMaiuscula = senha.indexOf(listaMaiuscula) > -1;
+        var senhaMinuscula = senha.indexOf(listaMinuscula) > -1;
 
         // Validação da confirmação
         var tamanhoConfirmação = confirmacao.length >= 0;
 
         // Validações
-
+        
     }
 </script>

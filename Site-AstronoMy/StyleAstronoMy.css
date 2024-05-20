@@ -1,0 +1,130 @@
+/* TELA DE CADASTRO */
+.cadastro {
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.cadastro .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(137, 43, 226, 0.507);
+    width: 20%;
+    height: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.cadastro .container h1 {
+    font-family: monospace;
+    font-size: 30px;
+    margin: 0px;
+}
+
+.cadastro .container h3 {
+    font-family: monospace;
+    margin: 0px;
+    font-size: 20px;
+}
+
+.cadastro .container .campo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cadastro .container label {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.cadastro .container input {
+    width: 100%;
+    border-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px;
+    border-bottom: 2px solid black;
+    font-family: sans-serif;
+    margin: 0px;
+}
+
+.cadastro .container input::placeholder {
+    color: rgba(0, 0, 0, 0.349);
+}
+
+.cadastro .container button {
+    font-family: monospace;
+    padding: 5px;
+    width: 70%;
+    border: 1px solid black;
+    background-color: white;
+}
+
+/* LOGIN */
+
+.login {
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.login .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    width: 20%;
+    height: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.login .container h1 {
+    font-family: monospace;
+    font-size: 30px;
+    margin: 0px;
+}
+
+.login .container h3 {
+    font-family: monospace;
+    margin: 0px;
+    font-size: 20px;
+}
+
+.login .container .campo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login .container label {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.login .container input {
+    width: 100%;
+    border-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px;
+    border-bottom: 2px solid black;
+    font-family: sans-serif;
+}
+
+.login .container input::placeholder {
+    color: rgba(0, 0, 0, 0.349);
+}
+
+.login .container button {
+    font-family: monospace;
+    padding: 5px;
+    width: 70%;
+    border: 1px solid black;
+    background-color: white;
+}
