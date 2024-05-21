@@ -19,37 +19,37 @@
         <div class="campo">
             <label>Nome:</label> <!-- Campo Nome -->
             <input type="text" placeholder="Informe seu nome" id="inputNome">
-            <div class="aviso"></div>
+            <div class="aviso" id="avisoNome"></div>
         </div>
         <br>
         <div class="campo">
             <label>Email:</label> <!-- Campo Email -->
             <input type="text" placeholder="Informe seu email" id="inputEmail">
-            <div class="aviso"></div>
+            <div class="aviso" id="avisoEmail"></div>
         </div>
         <br>
         <div class="campo">
             <label>Telefone:</label> <!-- Campo Telefone -->
             <input type="number" placeholder="Informe seu telefone" id="inputTelefone">
-            <div class="aviso"></div>
+            <div class="aviso" id="avisoTelefone"></div>
         </div>
         <br>
         <div class="campo">
             <label>Data de Nascimento:</label> <!-- Campo Data de Nascimento -->
             <input type="number" placeholder="Informe quando nasceu" id="inputNascimento">
-            <div class="aviso"></div>
+            <div class="aviso" id="avisoNascimento"></div>
         </div>
         <br>
         <div class="campo">
             <label>Senha:</label> <!-- Campo Senha -->
             <input type="password" placeholder="Crie sua senha" id="inputSenha">
-            <div class="aviso"></div>
+            <div class="aviso" id="avisoSenha"></div>
         </div>
         <br>
         <div class="campo">
             <label>Confirme sua Senha:</label> <!-- Campo Confirmação da Senha -->
             <input type="password" placeholder="Confirme sua senha" id="inputConfirmacao">
-            <div class="aviso"></div>
+            <div class="aviso" id="avisoConfirmacao"></div>
         </div>
         <br>
         <button onclick="cadastrar()">CADASTRAR-SE</button>
@@ -71,6 +71,14 @@
         var senha = inputSenha.value;
         var confirmacao = inputConfirmacao.value;
 
+        // Limpeza dos avisos
+        avisoNome.innerHTML = ``;
+        avisoEmail.innerHTML = ``;
+        avisoTelefone.innerHTML = ``;
+        avisoNascimento.innerHTML = ``;
+        avisoSenha.innerHTML = ``;
+        avisoConfirmacao.innerHTML = ``;
+
         // Criação de variáveis para auxiliar a validação
         // Validação do nome
         var tamanhoNome = (nome.length >= 5) && (nome.length <= 100);
@@ -83,6 +91,7 @@
 
         // Validação do telefone
         var tamanhoTelefone = telefone.length == 9;
+        var primeiroNumero = telefone[0] == 9;
 
         // Validação da data de nascimento
         var tamanhoNascimento = nascimento.length == 8;
@@ -103,10 +112,101 @@
         var tamanhoConfirmação = confirmacao.length >= 0;
 
         // Validações
-        // Validação do Nome
-        if(nome.length <= 0){
-            avisoNome.inner
-        } else
+        var validados = 0
+
+        // Validação do nome
+        if (nome.length <= 0) {
+            avisoNome.innerHTML = `Este campo é obrigatório`;
+        } else if (tamanhoNome == false || nomeCompleto == false) {
+            avisoNome.innerHTML = `Insira seu nome completo`;
+        } else {
+            validados++
+        }
+
+
+        // Validação do email
+        if (email.length <= 0) {
+            avisoEmail.innerHTML = `Este campo é obrigatório`;
+        } else if (tamanhoEmail == false || emailReal == false || regraEmail == false) {
+            avisoEmail.innerHTML = `Insira um email válido`;
+        } else {
+            validados++
+        }
+
+        // Validação do telefone
+        if (telefone.length <= 0) {
+            avisoTelefone.innerHTML = `Este campo é obrigatório`;
+        } else if (tamanhoTelefone == false || primeiroNumero == false) {
+            avisoTelefone.innerHTML = `Insira um telefone válido`;
+        } else {
+            validados++
+        }
+
+        // Validação data de nascimento 
+        var validarData = 0
+        if (nascimento.length <= 0) {
+            avisoNascimento.innerHTML = `Este campo é obrigatório`;
+        } else if (tamanhoNascimento == false) {
+            avisoNascimento.innerHTML = `Insira uma data válida`;
+        } else {
+            if (dia == false) {
+                avisoNascimento.innerHTML = `Insira um dia válido`;
+            } else if (nascimento[2] == 0 && nascimento[3] == 2) {
+                if (nascimento[7] == 1 ||
+                    nascimento[7] == 3 ||
+                    nascimento[7] == 5 ||
+                    nascimento[7] == 7 ||
+                    nascimento[7] == 9) {
+                    if (nascimento[1] > 8) {
+                        avisoNascimento.innerHTML = ``;
+                        avisoNascimento.innerHTML += `Insira um dia válido`;
+                    } else {
+                        validarData++
+                    }
+                }
+                if (nascimento[0] == 3) {
+                    avisoNascimento.innerHTML = ``
+                    avisoNascimento.innerHTML += `Insira um dia válido`;
+                } else {
+                    validarData++
+                }
+            }
+
+            if (mes == false) {
+                avisoNascimento.innerHTML = `Insira um mês válido`;
+            } else if (nascimento[2] == 1) {
+                if (nascimento[3] > 2) {
+                    avisoNascimento.innerHTML = ``;
+                    avisoNascimento.innerHTML += `Insira um mês válido`;
+                } else {
+                    validarData++
+                }
+            }
+
+            if (ano == false) {
+                avisoNascimento.innerHTML = `Insira um ano válido`;
+            } else {
+                if (nascimento[4] == 1) {
+                    if (nascimento[5] != 9) {
+                        avisoNascimento.innerHTML = ``;
+                        avisoNascimento.innerHTML += `Insira um ano válido`;
+                    } else {
+                        validarData++
+                    }
+                } else if (nascimento[5] != 0) {
+                    avisoNascimento.innerHTML = ``;
+                    avisoNascimento.innerHTML += `Insira um ano válido`;
+                } else {
+                    validarData++
+                }
+            }
+
+            if (validarData == 3) {
+                validados++
+            }
+        }
+
+        // Validar senha
         
     }
 </script>
