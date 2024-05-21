@@ -104,12 +104,9 @@
         listaMaiuscula = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ç'];
         listaMinuscula = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ç'];
         var tamanhoSenha = senha.length >= 8;
-        var senhaNumeros = senha.indexOf(listaNumeros) > -1;
-        var senhaMaiuscula = senha.indexOf(listaMaiuscula) > -1;
-        var senhaMinuscula = senha.indexOf(listaMinuscula) > -1;
-
-        // Validação da confirmação
-        var tamanhoConfirmação = confirmacao.length >= 0;
+        var numero = 0
+        var maiuscula = 0
+        var minuscula = 0
 
         // Validações
         var validados = 0
@@ -163,6 +160,8 @@
                     } else {
                         validarData++
                     }
+                } else {
+                    validarData++
                 }
                 if (nascimento[0] == 3) {
                     avisoNascimento.innerHTML = ``
@@ -170,6 +169,8 @@
                 } else {
                     validarData++
                 }
+            } else {
+                validarData++
             }
 
             if (mes == false) {
@@ -179,6 +180,10 @@
                     avisoNascimento.innerHTML = ``;
                     avisoNascimento.innerHTML += `Insira um mês válido`;
                 } else {
+                    validarData++
+                }
+            } else {
+                if (nascimento[3] != 2) {
                     validarData++
                 }
             }
@@ -204,9 +209,57 @@
             if (validarData == 3) {
                 validados++
             }
+            avisoNascimento.innerHTML += `<br> ${validarData}`
         }
 
         // Validar senha
-        
+        var validarSenha = 0
+
+        if (validados == 4) {
+            if (senha.length <= 0) {
+                avisoSenha.innerHTML = `Você precisa de uma senha!`
+            } else if (tamanhoSenha == false) {
+                avisoSenha.innerHTML = `Senha muito curta`
+            } else {
+                for (contagemNumero = 0; contagemNumero <= senha.length; contagemNumero++) {
+                    for (contagemNumero2 = 0; contagemNumero2 <= listaNumeros.length; contagemNumero2++) {
+                        if (senha[contagemNumero] == listaNumeros[contagemNumero2]) {
+                            numeros++
+                        }
+                    }
+                }
+                for (contagemMaiuscula = 0; contagemMaiuscula <= senha.length; contagem++) {
+                    for (contagemMaiuscula2 = 0; contagemMaiuscula <= listaNumeros.length; contagemMaiuscula2++) {
+                        if (senha[contagemMaiuscula] == listaMaiuscula[contagemMaiuscula2]) {
+                            maiuscula++
+                        }
+                    }
+                }
+                for (contagemMinuscula = 0; contagemMinuscula <= senha.length; contagem++) {
+                    for (contagemMinuscula2 = 0; contagemMinuscula <= listaNumeros.length; contagemMinuscula2++) {
+                        if (senha[contagemMinuscula] == listaMinuscula[contagemMinuscula2]) {
+                            minuscula++
+                        }
+                    }
+                }
+                var validarSenha = numero + maiuscula + minuscula;
+
+                if (minuscula == 0 || maiuscula == 0 || numero == 0) {
+                    avisoSenha.innerHTML = `Senha muito fraca`
+                } else if (senha.length == validarSenha) {
+                    avisoSenha.innerHTML = `Senha muito fraca`
+                } else {
+                    validados++
+                }
+            }
+        }
+
+        // Validação da confirmação
+        if (validados == 5) {
+            if (confirmacao != senha) {
+                avisoConfirmacao.innerHTML = `Senha diferente da digitada`
+            }
+        }
     }
+
 </script>
