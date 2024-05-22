@@ -42,7 +42,7 @@
         <br>
         <div class="campo">
             <label>Senha:</label> <!-- Campo Senha -->
-            <input type="password" placeholder="Crie sua senha" id="inputSenha">
+            <input type="text" placeholder="Crie sua senha" id="inputSenha">
             <div class="aviso" id="avisoSenha"></div>
         </div>
         <br>
@@ -149,11 +149,7 @@
             if (dia == false) {
                 avisoNascimento.innerHTML = `Insira um dia válido`;
             } else if (nascimento[2] == 0 && nascimento[3] == 2) {
-                if (nascimento[7] == 1 ||
-                    nascimento[7] == 3 ||
-                    nascimento[7] == 5 ||
-                    nascimento[7] == 7 ||
-                    nascimento[7] == 9) {
+                if (((nascimento[6] * 10) + nascimento[7]) % 4 != 0) {
                     if (nascimento[1] > 8) {
                         avisoNascimento.innerHTML = ``;
                         avisoNascimento.innerHTML += `Insira um dia válido`;
@@ -209,11 +205,14 @@
             if (validarData == 3) {
                 validados++
             }
-            avisoNascimento.innerHTML += `<br> ${validarData}`
+
         }
 
         // Validar senha
         var validarSenha = 0
+        var numeros = 0
+        var maiuscula = 0
+        var minuscula = 0
 
         if (validados == 4) {
             if (senha.length <= 0) {
@@ -221,6 +220,7 @@
             } else if (tamanhoSenha == false) {
                 avisoSenha.innerHTML = `Senha muito curta`
             } else {
+                
                 for (contagemNumero = 0; contagemNumero <= senha.length; contagemNumero++) {
                     for (contagemNumero2 = 0; contagemNumero2 <= listaNumeros.length; contagemNumero2++) {
                         if (senha[contagemNumero] == listaNumeros[contagemNumero2]) {
@@ -228,26 +228,28 @@
                         }
                     }
                 }
-                for (contagemMaiuscula = 0; contagemMaiuscula <= senha.length; contagem++) {
-                    for (contagemMaiuscula2 = 0; contagemMaiuscula <= listaNumeros.length; contagemMaiuscula2++) {
+                for (contagemMaiuscula = 0; contagemMaiuscula <= senha.length; contagemMaiuscula++) {
+                    for (contagemMaiuscula2 = 0; contagemMaiuscula2 <= listaNumeros.length; contagemMaiuscula2++) {
                         if (senha[contagemMaiuscula] == listaMaiuscula[contagemMaiuscula2]) {
                             maiuscula++
                         }
                     }
                 }
-                for (contagemMinuscula = 0; contagemMinuscula <= senha.length; contagem++) {
-                    for (contagemMinuscula2 = 0; contagemMinuscula <= listaNumeros.length; contagemMinuscula2++) {
+                for (contagemMinuscula = 0; contagemMinuscula <= senha.length; contagemMinuscula++) {
+                    for (contagemMinuscula2 = 0; contagemMinuscula2 <= listaNumeros.length; contagemMinuscula2++) {
                         if (senha[contagemMinuscula] == listaMinuscula[contagemMinuscula2]) {
                             minuscula++
                         }
                     }
                 }
-                var validarSenha = numero + maiuscula + minuscula;
 
-                if (minuscula == 0 || maiuscula == 0 || numero == 0) {
-                    avisoSenha.innerHTML = `Senha muito fraca`
-                } else if (senha.length == validarSenha) {
-                    avisoSenha.innerHTML = `Senha muito fraca`
+                validarSenha = numeros + maiuscula + minuscula;
+                avisoSenha.innerHTML = `${validarSenha}`;
+
+                if (minuscula == 0 || maiuscula == 0 || numeros == 0) {
+                    avisoSenha.innerHTML = `Senha muito fraca 1 n${numero} ma${maiuscula} mi${minuscula}`
+                // } else if (senha.length == validarSenha) {
+                //     avisoSenha.innerHTML = `Senha muito fraca`
                 } else {
                     validados++
                 }
