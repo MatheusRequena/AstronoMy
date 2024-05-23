@@ -1,20 +1,58 @@
+/* HEADER */
+.header {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 5%;
+    padding-left: 3%;
+    background-color: white;
+    color: #563872e9;
+    border-bottom: 3px solid #563872e9;
+    height: 100%;
+    width: 92%;
+}
+
+.header a {
+    margin: 1%;
+    padding: 0px;
+    color: #563872e9;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.header .atual {
+    font-weight: 930;
+}
+
+.logo {
+    margin: 0px;
+    height: 50px;
+}
+
 /* TELA DE CADASTRO */
 .cadastro {
-    background-color: white;
-    color: black;
-    display: flex;
-    justify-content: center;
+    margin: 0px;
+    background-color: black;
+    color: white;
+    background-image: url(img/FundoCadastro.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .cadastro .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(137, 43, 226, 0.507);
+    background-color: #563872e9;
     width: 20%;
     height: 100%;
     padding-bottom: 10px;
     padding-top: 10px;
+    border-radius: 20px;
+    border: 3px solid white;
 }
 
 .cadastro .container h1 {
