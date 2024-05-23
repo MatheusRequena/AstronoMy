@@ -53,6 +53,7 @@
         </div>
         <br>
         <button onclick="cadastrar()">CADASTRAR-SE</button>
+        <div id="avisoConclusao"></div>
     </div>
 </body>
 
@@ -90,8 +91,8 @@
         var regraEmail = (email.indexOf('@') <= 64) && (email.length - (email.indexOf('@') + 1) <= 255);
 
         // Validação do telefone
-        var tamanhoTelefone = telefone.length == 9;
-        var primeiroNumero = telefone[0] == 9;
+        var tamanhoTelefone = telefone.length == 11;
+        var primeiroNumero = telefone[2] == 9;
 
         // Validação da data de nascimento
         var tamanhoNascimento = nascimento.length == 8;
@@ -149,7 +150,7 @@
             if (dia == false) {
                 avisoNascimento.innerHTML = `Insira um dia válido`;
             } else if (nascimento[2] == 0 && nascimento[3] == 2) {
-                if (((nascimento[6] * 10) + nascimento[7]) % 4 != 0) {
+                if ((((nascimento[6] * 10) + nascimento[7]) % 4) != 0) {
                     if (nascimento[1] > 8) {
                         avisoNascimento.innerHTML = ``;
                         avisoNascimento.innerHTML += `Insira um dia válido`;
@@ -209,58 +210,62 @@
         }
 
         // Validar senha
-        var validarSenha = 0
-        var numeros = 0
-        var maiuscula = 0
-        var minuscula = 0
+        var validarSenha = 0;
+        var numeros = 0;
+        var maiuscula = 0;
+        var minuscula = 0;
 
-        if (validados == 4) {
-            if (senha.length <= 0) {
-                avisoSenha.innerHTML = `Você precisa de uma senha!`
-            } else if (tamanhoSenha == false) {
-                avisoSenha.innerHTML = `Senha muito curta`
+        if (senha.length <= 0) {
+            avisoSenha.innerHTML = `Você precisa de uma senha!`
+        } else if (tamanhoSenha == false) {
+            avisoSenha.innerHTML = `Senha muito curta`
+        } else {
+
+            for (var contagemNumero = 0; contagemNumero < senha.length; contagemNumero++) {
+                for (var contagemNumero2 = 0; contagemNumero2 <= listaNumeros.length; contagemNumero2++) {
+                    if (senha[contagemNumero] == listaNumeros[contagemNumero2]) {
+                        numeros++
+                    }
+                }
+            }
+            for (var contagemMaiuscula = 0; contagemMaiuscula < senha.length; contagemMaiuscula++) {
+                for (var contagemMaiuscula2 = 0; contagemMaiuscula2 <= listaMaiuscula.length; contagemMaiuscula2++) {
+                    if (senha[contagemMaiuscula] == listaMaiuscula[contagemMaiuscula2]) {
+                        maiuscula++
+                    }
+                }
+            }
+
+            for (var contagemMinuscula = 0; contagemMinuscula < senha.length; contagemMinuscula++) {
+                for (var contagemMinuscula2 = 0; contagemMinuscula2 <= listaMinuscula.length; contagemMinuscula2++) {
+                    if (senha[contagemMinuscula] == listaMinuscula[contagemMinuscula2]) {
+                        minuscula++
+                    }
+                }
+            }
+
+            validarSenha = numeros + maiuscula + minuscula;
+
+            if (minuscula == 0 || maiuscula == 0 || numeros == 0) {
+            } else if (senha.length == validarSenha) {
+                avisoSenha.innerHTML = `Senha muito fraca`
             } else {
-                
-                for (contagemNumero = 0; contagemNumero <= senha.length; contagemNumero++) {
-                    for (contagemNumero2 = 0; contagemNumero2 <= listaNumeros.length; contagemNumero2++) {
-                        if (senha[contagemNumero] == listaNumeros[contagemNumero2]) {
-                            numeros++
-                        }
-                    }
-                }
-                for (contagemMaiuscula = 0; contagemMaiuscula <= senha.length; contagemMaiuscula++) {
-                    for (contagemMaiuscula2 = 0; contagemMaiuscula2 <= listaNumeros.length; contagemMaiuscula2++) {
-                        if (senha[contagemMaiuscula] == listaMaiuscula[contagemMaiuscula2]) {
-                            maiuscula++
-                        }
-                    }
-                }
-                for (contagemMinuscula = 0; contagemMinuscula <= senha.length; contagemMinuscula++) {
-                    for (contagemMinuscula2 = 0; contagemMinuscula2 <= listaNumeros.length; contagemMinuscula2++) {
-                        if (senha[contagemMinuscula] == listaMinuscula[contagemMinuscula2]) {
-                            minuscula++
-                        }
-                    }
-                }
-
-                validarSenha = numeros + maiuscula + minuscula;
-                avisoSenha.innerHTML = `${validarSenha}`;
-
-                if (minuscula == 0 || maiuscula == 0 || numeros == 0) {
-                    avisoSenha.innerHTML = `Senha muito fraca 1 n${numero} ma${maiuscula} mi${minuscula}`
-                // } else if (senha.length == validarSenha) {
-                //     avisoSenha.innerHTML = `Senha muito fraca`
-                } else {
-                    validados++
-                }
+                validados++
             }
         }
 
         // Validação da confirmação
-        if (validados == 5) {
-            if (confirmacao != senha) {
-                avisoConfirmacao.innerHTML = `Senha diferente da digitada`
-            }
+        if (confirmacao != senha) {
+            avisoConfirmacao.innerHTML = `Senha diferente da digitada`
+        } else {
+            validados++
+        }
+
+        // Verificar Validações
+        if(validados == 6){
+            window.location.href = 'LoginAstronoMy.html';
+        } else {
+            avisoConclusao.innerHTML = `Preencha todos os campos para se cadastrar`
         }
     }
 
