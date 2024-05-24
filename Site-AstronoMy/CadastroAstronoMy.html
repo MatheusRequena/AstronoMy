@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="StyleAstronoMy.css">
     <link rel="icon" href="img/GalaxiaAstronoMy.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
     <title>AstronoMy | Cadastro</title>
 </head>
 
 
 <body class="cadastro">
-   
+
     <!-- Header -->
     <div class="header">
         <img src="img/LogoAstronoMy.png" alt="Logo AstronoMy" class="logo">
@@ -22,49 +25,55 @@
     </div>
 
     <!-- Conteúdo da Tela -->
+    <div class="titulo">
+        <h1>BOAS VINDAS, ASTRONAUTA!</h1>
+        <h3>Cadastre-se e conheça o universo</h3>
+    </div>
     <!-- Container de Cadastro -->
     <div class="container">
-        <h1>BOAS VINDAS</h1>
-        <h3>Cadastre-se agora!</h3>
-        <br>
         <div class="campo">
             <label>Nome:</label> <!-- Campo Nome -->
             <input type="text" placeholder="Informe seu nome" id="inputNome">
             <div class="aviso" id="avisoNome"></div>
         </div>
-        <br>
+        <br> <br>
         <div class="campo">
             <label>Email:</label> <!-- Campo Email -->
             <input type="text" placeholder="Informe seu email" id="inputEmail">
             <div class="aviso" id="avisoEmail"></div>
         </div>
-        <br>
+        <br> <br>
         <div class="campo">
             <label>Telefone:</label> <!-- Campo Telefone -->
             <input type="number" placeholder="Informe seu telefone" id="inputTelefone">
             <div class="aviso" id="avisoTelefone"></div>
         </div>
-        <br>
+        <br> <br>
         <div class="campo">
             <label>Data de Nascimento:</label> <!-- Campo Data de Nascimento -->
             <input type="number" placeholder="Informe quando nasceu" id="inputNascimento">
             <div class="aviso" id="avisoNascimento"></div>
         </div>
-        <br>
+        <br> <br>
         <div class="campo">
             <label>Senha:</label> <!-- Campo Senha -->
             <input type="text" placeholder="Crie sua senha" id="inputSenha">
             <div class="aviso" id="avisoSenha"></div>
         </div>
-        <br>
+        <br> <br>
         <div class="campo">
             <label>Confirme sua Senha:</label> <!-- Campo Confirmação da Senha -->
             <input type="password" placeholder="Confirme sua senha" id="inputConfirmacao">
             <div class="aviso" id="avisoConfirmacao"></div>
         </div>
-        <br>
+        <br> <br>
         <button onclick="cadastrar()">CADASTRAR-SE</button>
-        <div id="avisoConclusao"></div>
+        <div id="avisoConclusao" class="aviso"></div>
+    </div>
+    <br>
+
+    <div class="footer">
+        <span>Copyright 2024 &copy; Designed by Matheus Requena</span>
     </div>
 </body>
 
@@ -273,7 +282,7 @@
         }
 
         // Verificar Validações
-        if(validados == 6){
+        if (validados == 6) {
             window.location.href = 'LoginAstronoMy.html';
         } else {
             avisoConclusao.innerHTML = `Preencha todos os campos para se cadastrar`
