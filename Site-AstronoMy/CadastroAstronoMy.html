@@ -17,11 +17,11 @@
 
     <!-- Header -->
     <div class="header">
-        <img src="img/LogoAstronoMy.png" alt="Logo AstronoMy" class="logo">
-        <a href="HomeAstronoMy.html">Inicio</a>
-        <a href="JogosAstronoMy.html">Jogos</a>
-        <a class="atual" href="CadastroAstronoMy.html">Cadastre-se</a>
-        <a href="LoginAstronoMy.html">Entrar</a>
+        <a href="HomeAstronoMy.html"><img src="img/LogoAstronoMy.png" alt="Logo AstronoMy" class="logo"></a>
+        <a href="HomeAstronoMy.html" class="link">Inicio</a>
+        <a href="JogosAstronoMy.html" class="link">Jogos</a>
+        <a href="CadastroAstronoMy.html" class="atual">Cadastre-se</a>
+        <a href="LoginAstronoMy.html" class="link">Entrar</a>
     </div>
 
     <!-- Conteúdo da Tela -->
@@ -29,6 +29,7 @@
         <h1>BOAS VINDAS, ASTRONAUTA!</h1>
         <h3>Cadastre-se e conheça o universo</h3>
     </div>
+
     <!-- Container de Cadastro -->
     <div class="container">
         <div class="campo">
@@ -66,12 +67,12 @@
             <input type="password" placeholder="Confirme sua senha" id="inputConfirmacao">
             <div class="aviso" id="avisoConfirmacao"></div>
         </div>
-        <br> <br>
         <button onclick="cadastrar()">CADASTRAR-SE</button>
         <div id="avisoConclusao" class="aviso"></div>
     </div>
     <br>
 
+    <!-- Footer -->
     <div class="footer">
         <span>Copyright 2024 &copy; Designed by Matheus Requena</span>
     </div>
@@ -99,6 +100,7 @@
         avisoNascimento.innerHTML = ``;
         avisoSenha.innerHTML = ``;
         avisoConfirmacao.innerHTML = ``;
+        avisoConclusao.innerHTML = ``;
 
         // Criação de variáveis para auxiliar a validação
         // Validação do nome
@@ -285,7 +287,7 @@
         if (validados == 6) {
             window.location.href = 'LoginAstronoMy.html';
         } else {
-            avisoConclusao.innerHTML = `Preencha todos os campos para se cadastrar`
+            avisoConclusao.innerHTML = `Preencha todos os campos corretamente!`
         }
     }
 

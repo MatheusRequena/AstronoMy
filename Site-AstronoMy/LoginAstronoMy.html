@@ -9,13 +9,23 @@
 </head>
 
 <body class="login">
+    <!-- Header -->
+    <div class="header">
+        <a href="HomeAstronoMy.html"><img src="img/LogoAstronoMy.png" alt="Logo AstronoMy" class="logo"></a>
+        <a href="HomeAstronoMy.html" class="link">Inicio</a>
+        <a href="JogosAstronoMy.html" class="link">Jogos</a>
+        <a href="CadastroAstronoMy.html" class="link">Cadastre-se</a>
+        <a href="LoginAstronoMy.html" class="atual">Entrar</a>
+    </div>
 
     <!-- Conteúdo da Tela -->
+    <div class="titulo">
+        <h1>QUE BOM TE VER!</h1>
+        <h3>Insira seus dados para vagar pelo espaço</h3>
+    </div>
+
     <!-- Container de Login -->
     <div class="container">
-        <h1>BEM VINDO DE VOLTA</h1>
-        <h3>Insira seus dados para sabermos quem é!</h3>
-        <br>
         <div class="campo">
             <label>Email:</label> <!-- Campo Email -->
             <input type="text" placeholder="Informe seu email" id="inputEmail">
@@ -31,6 +41,11 @@
         <button onclick="entrar()">ENTRAR</button>
         <div class="aviso" id="avisoLogin"></div>
     </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <span>Copyright 2024 &copy; Designed by Matheus Requena</span>
+    </div>
 </body>
 
 </html>
@@ -39,6 +54,13 @@
 
     // Função para entrar com um usuario
     function entrar() {
+        // Declaração de variáveis
+        var email = inputEmail.value;
+        var senha = inputSenha.value;
 
+        // Limpeza dos avisos
+        avisoEmail.innerHTML = ``;
+        avisoSenha.innerHTML = ``;
+        avisoLogin.innerHTML = ``;
     }
 </script>
