@@ -58,7 +58,7 @@
         <br> <br>
         <div class="campo">
             <label>Senha:</label> <!-- Campo Senha -->
-            <input type="text" placeholder="Crie sua senha" id="inputSenha">
+            <input type="password" placeholder="Crie sua senha" id="inputSenha">
             <div class="aviso" id="avisoSenha"></div>
         </div>
         <br> <br>
@@ -269,6 +269,7 @@
             validarSenha = numeros + maiuscula + minuscula;
 
             if (minuscula == 0 || maiuscula == 0 || numeros == 0) {
+                avisoSenha.innerHTML = `Senha muito fraca`
             } else if (senha.length == validarSenha) {
                 avisoSenha.innerHTML = `Senha muito fraca`
             } else {
