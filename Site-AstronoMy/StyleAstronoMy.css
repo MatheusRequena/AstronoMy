@@ -68,12 +68,105 @@
 
 
 /* HOME */
-.login {
+.home {
     margin: 0px;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
+}
+
+.home .banner {
+    background-image: url(img/Banner.png);
     background-repeat: no-repeat;
+    background-position: center;
     background-size: 100%;
+    width: 100%;
+    padding-top: 10%;
+    padding-bottom: 19%;
+    border-bottom: 5px solid #563872;
+    color: white;
+    font-family: Trispace;
+    font-size: 70px;
+}
+
+.home .banner label{
+margin-left: 2%;
+}
+
+.home .banner .destaque{
+    color: #6F8DC8;
+    font-weight: bold;
+}
+
+.home .titulo {
+    display: flex;
+    justify-content: center;
+    font-family: Trispace;
+    font-size: 45px;
+    margin-top: 2%;
+    color: #563872;
+}
+
+.home .titulo .nome {
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #4d2b6d;
+}
+
+.home .sobre {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: Trispace;
+    padding-bottom: 3%;
+    padding-top: 2%;
+}
+
+.home .sobre .cartao {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border: #563872 solid 5px;
+    border-radius: 15px;
+    padding: 1.5%;
+    padding-top: 0%;
+}
+
+.home .sobre .cartao h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    text-decoration: underline solid;
+    color: #563872;
+}
+
+.home .sobre .cartao span {
+    font-size: 20px;
+    text-align: center;
+}
+
+.home .valores {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: #4d2b6d 5px solid;
+    border-radius: 15px;
+    width: 50%;
+    margin-left: 25%;
+    font-size: 20px;
+    font-family: Trispace;
+    padding: 1%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+}
+
+.home .valores span {
+    border-top: 5px solid #4d2b6d;
+    margin: 0%;
+    text-align: justify;
+    padding: 2.5%;
+    
 }
 
 
