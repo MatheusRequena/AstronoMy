@@ -3,3 +3,5 @@
 ### AGRADEÇO DESDE JÁ A COMPREENSÃO
 
 ### DA PROXIMA VEZ VAI APARECER UMA FOTO DO VAMPETA...
+
+![image](https://github.com/MatheusRequena/AstronoMy/assets/160244431/23bcb6dc-f019-4bc3-885e-c3a4b08bf2cd)
