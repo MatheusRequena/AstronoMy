@@ -146,10 +146,28 @@ margin-left: 2%;
     text-align: center;
 }
 
+.home .fundoValores{
+    background-image: url(img/Valores.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-top: #4d2b6d 5px solid;
+    padding-bottom: 2%;
+    padding-top: 1%;
+}
+
+.home .tituloValores {
+    display: flex;
+    justify-content: center;
+    font-family: Trispace;
+    font-size: 45px;
+    color: #8C52FF;
+}
+
 .home .valores {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: white;
     border: #4d2b6d 5px solid;
     border-radius: 15px;
     width: 50%;
@@ -159,6 +177,15 @@ margin-left: 2%;
     padding: 1%;
     padding-top: 0%;
     padding-bottom: 0%;
+    margin-top: 1%;
+}
+
+.home .valores label{
+    text-align: center;
+    font-size: 28px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color: #4d2b6d;
 }
 
 .home .valores span {
@@ -166,7 +193,12 @@ margin-left: 2%;
     margin: 0%;
     text-align: justify;
     padding: 2.5%;
-    
+}
+
+.home .valores .mensagemFinal {
+    font-style: italic;
+    font-size: 13px;
+    color: gray;
 }
 
 
