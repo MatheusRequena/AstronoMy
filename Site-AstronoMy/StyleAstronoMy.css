@@ -88,11 +88,11 @@
     font-size: 70px;
 }
 
-.home .banner label{
-margin-left: 2%;
+.home .banner label {
+    margin-left: 2%;
 }
 
-.home .banner .destaque{
+.home .banner .destaque {
     color: #6F8DC8;
     font-weight: bold;
 }
@@ -110,6 +110,12 @@ margin-left: 2%;
     font-weight: bold;
     font-family: sans-serif;
     color: #4d2b6d;
+}
+
+.home .fundoSobre {
+    background-image: url(img/Sobre.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .home .sobre {
@@ -146,7 +152,7 @@ margin-left: 2%;
     text-align: center;
 }
 
-.home .fundoValores{
+.home .fundoValores {
     background-image: url(img/Valores.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -180,7 +186,7 @@ margin-left: 2%;
     margin-top: 1%;
 }
 
-.home .valores label{
+.home .valores label {
     text-align: center;
     font-size: 28px;
     padding-top: 2%;
@@ -213,7 +219,7 @@ margin-left: 2%;
     background-size: 100%;
 }
 
-.cadastro .titulo{
+.cadastro .titulo {
     color: #bbabe8;
     margin: 0px;
     margin-left: 33%;
@@ -274,7 +280,7 @@ margin-left: 2%;
 }
 
 .cadastro .container input ::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button{
+input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
@@ -317,7 +323,7 @@ input::-webkit-inner-spin-button{
     background-size: 100%;
 }
 
-.login .titulo{
+.login .titulo {
     color: #bbabe8;
     margin: 0px;
     margin-left: 40%;
