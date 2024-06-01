@@ -97,7 +97,58 @@
     font-weight: bold;
 }
 
-.home .titulo {
+.home .fundoEstudar {
+    background-image: url(img/Estudar.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 5px #563872 solid;   
+}
+
+.home .tituloEstudar {
+    display: flex;
+    font-family: Trispace;
+    font-size: 45px;
+    margin-top: 2%;
+    color: #563872;
+}
+
+.home .fundoEstudar span {
+    color: #563872;
+    font-family: Trispace;
+    font-size: 25px;
+}
+
+.home .botoes{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2%;
+}
+
+.home .botoes button {
+    margin-left: 20%;
+    margin-right: 20%;
+    font-family: Trispace;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 20px;
+    width: 50%;
+    border: 2px solid #563872e9;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.home .fundoSobre {
+    background-image: url(img/Sobre.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.home .tituloSobre {
     display: flex;
     justify-content: center;
     font-family: Trispace;
@@ -106,16 +157,10 @@
     color: #563872;
 }
 
-.home .titulo .nome {
+.home .tituloSobre .nome {
     font-weight: bold;
     font-family: sans-serif;
     color: #4d2b6d;
-}
-
-.home .fundoSobre {
-    background-image: url(img/Sobre.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
 }
 
 .home .sobre {
@@ -133,8 +178,6 @@
     width: 20%;
     margin-left: 5%;
     margin-right: 5%;
-    border: #563872 solid 5px;
-    border-radius: 15px;
     padding: 1.5%;
     padding-top: 0%;
 }
