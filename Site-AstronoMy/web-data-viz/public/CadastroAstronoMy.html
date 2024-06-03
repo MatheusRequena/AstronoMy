@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="StyleAstronoMy.css">
+    <link rel="icon" href="img/GalaxiaAstronoMy.png">
+    <script src="./js/sessao.js"></script>
+    <title>AstronoMy | Cadastro</title>
+</head>
+
+
+<body class="cadastro">
+
+    <!-- Header -->
+    <div class="header">
+        <a href="index.html"><img src="img/LogoAstronoMy.png" alt="Logo AstronoMy" class="logo"></a>
+        <a href="index.html" class="link">Inicio</a>
+        <a href="EstudarAstronoMy.html" class="link">Estudar</a>
+        <a href="CadastroAstronoMy.html" class="atual">Cadastre-se</a>
+        <a href="LoginAstronoMy.html" class="link">Entrar</a>
+    </div>
+
+    <!-- Conteúdo da Tela -->
+    <div class="titulo">
+        <h1>BOAS VINDAS, ASTRONAUTA!</h1>
+        <h3>Cadastre-se e conheça o universo</h3>
+    </div>
+
+    <!-- Container de Cadastro -->
+    <div class="container">
+        <div class="campo">
+            <label>Nome:</label> <!-- Campo Nome -->
+            <input type="text" placeholder="Informe seu nome" id="inputNome">
+            <div class="aviso" id="avisoNome"></div>
+        </div>
+        <br> <br>
+        <div class="campo">
+            <label>Email:</label> <!-- Campo Email -->
+            <input type="text" placeholder="Informe seu email" id="inputEmail">
+            <div class="aviso" id="avisoEmail"></div>
+        </div>
+        <br> <br>
+        <div class="campo">
+            <label>Telefone:</label> <!-- Campo Telefone -->
+            <input type="number" placeholder="Informe seu telefone" id="inputTelefone">
+            <div class="aviso" id="avisoTelefone"></div>
+        </div>
+        <br> <br>
+        <div class="campo">
+            <label>Data de Nascimento:</label> <!-- Campo Data de Nascimento -->
+            <input type="number" placeholder="Informe quando nasceu" id="inputNascimento">
+            <div class="aviso" id="avisoNascimento"></div>
+        </div>
+        <br> <br>
+        <div class="campo">
+            <label>Senha:</label> <!-- Campo Senha -->
+            <input type="password" placeholder="Crie sua senha" id="inputSenha">
+            <div class="aviso" id="avisoSenha"></div>
+        </div>
+        <br> <br>
+        <div class="campo">
+            <label>Confirme sua Senha:</label> <!-- Campo Confirmação da Senha -->
+            <input type="password" placeholder="Confirme sua senha" id="inputConfirmacao">
+            <div class="aviso" id="avisoConfirmacao"></div>
+        </div>
+        <button onclick="cadastrar()">CADASTRAR-SE</button>
+        <div id="avisoConclusao" class="aviso"></div>
+    </div>
+    <br>
+
+    <!-- Footer -->
+    <div class="footer">
+        <span>Copyright 2024 &copy; Designed by Matheus Requena</span>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    // Função para cadastrar o usuário
+    function cadastrar() {
+
+        // Declaração de variáveis
+        var nome = inputNome.value;
+        var email = inputEmail.value;
+        var telefone = inputTelefone.value;
+        var nascimento = inputNascimento.value;
+        var senha = inputSenha.value;
+        var confirmacao = inputConfirmacao.value;
+
+        // Limpeza dos avisos
+        avisoNome.innerHTML = ``;
+        avisoEmail.innerHTML = ``;
+        avisoTelefone.innerHTML = ``;
+        avisoNascimento.innerHTML = ``;
+        avisoSenha.innerHTML = ``;
+        avisoConfirmacao.innerHTML = ``;
+        avisoConclusao.innerHTML = ``;
+
+        // Criação de variáveis para auxiliar a validação
+        // Validação do nome
+        var tamanhoNome = (nome.length >= 5) && (nome.length <= 100);
+        var nomeCompleto = nome.indexOf(" ") > 0;
+
+        // Validação do email
+        var tamanhoEmail = (email.length >= 3) && (email.length <= 320);
+        var emailReal = (email.indexOf('@') > 0) && (email.indexOf('.') > 0);
+        var regraEmail = (email.indexOf('@') <= 64) && (email.length - (email.indexOf('@') + 1) <= 255);
+
+        // Validação do telefone
+        var tamanhoTelefone = telefone.length == 11;
+        var primeiroNumero = telefone[2] == 9;
+
+        // Validação da data de nascimento
+        var tamanhoNascimento = nascimento.length == 8;
+        var dia = (nascimento[0] <= 3);
+        var mes = (nascimento[2] <= 1);
+        var ano = ((nascimento[4] == 1) || (nascimento[4] == 2)) && ((nascimento[5] == 0) || (nascimento[5] == 9));
+
+        // Validação da senha
+        listaNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+        listaMaiuscula = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Ç'];
+        listaMinuscula = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ç'];
+        var tamanhoSenha = senha.length >= 8;
+        var numero = 0
+        var maiuscula = 0
+        var minuscula = 0
+
+        // Validações
+        var validados = 0
+
+        // Validação do nome
+        if (nome.length <= 0) {
+            avisoNome.innerHTML = `Este campo é obrigatório`;
+        } else if (tamanhoNome == false || nomeCompleto == false) {
+            avisoNome.innerHTML = `Insira seu nome completo`;
+        } else {
+            validados++
+        }
+
+
+        // Validação do email
+        if (email.length <= 0) {
+            avisoEmail.innerHTML = `Este campo é obrigatório`;
+        } else if (tamanhoEmail == false || emailReal == false || regraEmail == false) {
+            avisoEmail.innerHTML = `Insira um email válido`;
+        } else {
+            validados++
+        }
+
+        // Validação do telefone
+        if (telefone.length <= 0) {
+            avisoTelefone.innerHTML = `Este campo é obrigatório`;
+        } else if (tamanhoTelefone == false || primeiroNumero == false) {
+            avisoTelefone.innerHTML = `Insira um telefone válido`;
+        } else {
+            validados++
+        }
+
+        // Validação data de nascimento 
+        var validarData = 0
+        if (nascimento.length <= 0) {
+            avisoNascimento.innerHTML = `Este campo é obrigatório`;
+        } else if (tamanhoNascimento == false) {
+            avisoNascimento.innerHTML = `Insira uma data válida`;
+        } else {
+            if (dia == false) {
+                avisoNascimento.innerHTML = `Insira um dia válido`;
+            } else if (nascimento[2] == 0 && nascimento[3] == 2) {
+                if ((((nascimento[6] * 10) + nascimento[7]) % 4) != 0) {
+                    if (nascimento[1] > 8) {
+                        avisoNascimento.innerHTML = ``;
+                        avisoNascimento.innerHTML += `Insira um dia válido`;
+                    } else {
+                        validarData++
+                    }
+                } else {
+                    validarData++
+                }
+                if (nascimento[0] == 3) {
+                    avisoNascimento.innerHTML = ``
+                    avisoNascimento.innerHTML += `Insira um dia válido`;
+                } else {
+                    validarData++
+                }
+            } else {
+                validarData++
+            }
+
+            if (mes == false) {
+                avisoNascimento.innerHTML = `Insira um mês válido`;
+            } else if (nascimento[2] == 1) {
+                if (nascimento[3] > 2) {
+                    avisoNascimento.innerHTML = ``;
+                    avisoNascimento.innerHTML += `Insira um mês válido`;
+                } else {
+                    validarData++
+                }
+            } else {
+                if (nascimento[3] != 2) {
+                    validarData++
+                }
+            }
+
+            if (ano == false) {
+                avisoNascimento.innerHTML = `Insira um ano válido`;
+            } else {
+                if (nascimento[4] == 1) {
+                    if (nascimento[5] != 9) {
+                        avisoNascimento.innerHTML = ``;
+                        avisoNascimento.innerHTML += `Insira um ano válido`;
+                    } else {
+                        validarData++
+                    }
+                } else if (nascimento[5] != 0) {
+                    avisoNascimento.innerHTML = ``;
+                    avisoNascimento.innerHTML += `Insira um ano válido`;
+                } else {
+                    validarData++
+                }
+            }
+
+            if (validarData == 3) {
+                validados++
+            }
+
+        }
+
+        // Validar senha
+        var validarSenha = 0;
+        var numeros = 0;
+        var maiuscula = 0;
+        var minuscula = 0;
+
+        if (senha.length <= 0) {
+            avisoSenha.innerHTML = `Você precisa de uma senha!`
+        } else if (tamanhoSenha == false) {
+            avisoSenha.innerHTML = `Senha muito curta`
+        } else {
+
+            for (var contagemNumero = 0; contagemNumero < senha.length; contagemNumero++) {
+                for (var contagemNumero2 = 0; contagemNumero2 <= listaNumeros.length; contagemNumero2++) {
+                    if (senha[contagemNumero] == listaNumeros[contagemNumero2]) {
+                        numeros++
+                    }
+                }
+            }
+            for (var contagemMaiuscula = 0; contagemMaiuscula < senha.length; contagemMaiuscula++) {
+                for (var contagemMaiuscula2 = 0; contagemMaiuscula2 <= listaMaiuscula.length; contagemMaiuscula2++) {
+                    if (senha[contagemMaiuscula] == listaMaiuscula[contagemMaiuscula2]) {
+                        maiuscula++
+                    }
+                }
+            }
+
+            for (var contagemMinuscula = 0; contagemMinuscula < senha.length; contagemMinuscula++) {
+                for (var contagemMinuscula2 = 0; contagemMinuscula2 <= listaMinuscula.length; contagemMinuscula2++) {
+                    if (senha[contagemMinuscula] == listaMinuscula[contagemMinuscula2]) {
+                        minuscula++
+                    }
+                }
+            }
+
+            validarSenha = numeros + maiuscula + minuscula;
+
+            if (minuscula == 0 || maiuscula == 0 || numeros == 0) {
+                avisoSenha.innerHTML = `Senha muito fraca`
+            } else if (senha.length == validarSenha) {
+                avisoSenha.innerHTML = `Senha muito fraca`
+            } else {
+                validados++
+            }
+        }
+
+        // Validação da confirmação
+        if (confirmacao != senha) {
+            avisoConfirmacao.innerHTML = `Senha diferente da digitada`
+        } else {
+            validados++
+        }
+
+        // Verificar Validações
+        if (validados == 6) {
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nome,
+        emailServer: email,
+        senhaServer: senha,
+        telefoneServer: telefone,
+        nascimentoServer: nascimento
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+} else {
+            avisoConclusao.innerHTML = `Preencha todos os campos corretamente!`
+        }
+  }
+
+  function listar() {
+    fetch("/empresas/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((empresas) => {
+          empresas.forEach((empresa) => {
+            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+
+</script>
