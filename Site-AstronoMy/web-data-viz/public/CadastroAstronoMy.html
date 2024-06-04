@@ -284,6 +284,7 @@
 
         // Verificar Validações
         if (validados == 6) {
+            var nascimentoFormatado = nascimento[4] + nascimento[5] + nascimento[6] + nascimento[7] + '-' + nascimento[2] + nascimento[3] + '-' + nascimento[0] + nascimento[1]
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -301,7 +302,7 @@
         emailServer: email,
         senhaServer: senha,
         telefoneServer: telefone,
-        nascimentoServer: nascimento
+        nascimentoServer: nascimentoFormatado
       }),
     })
       .then(function (resposta) {

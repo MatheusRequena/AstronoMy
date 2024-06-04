@@ -38,7 +38,7 @@ ALTER TABLE Notas
 		REFERENCES Usuario (idUsuario);
 
 ALTER TABLE Notas
-	ADD CONSTRAINT fkEstudoNotas foreign key (fkEstudos)
+	ADD CONSTRAINT fkEstudoNotas foreign key (fkEstudo)
 		REFERENCES Estudo (idEstudo);
 
         

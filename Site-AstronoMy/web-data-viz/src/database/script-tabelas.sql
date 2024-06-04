@@ -6,54 +6,65 @@
 comandos para mysql server
 */
 
-CREATE DATABASE aquatech;
+-- CRIAÇÃO DO BANCO DE DADOS
+CREATE DATABASE AstronoMy;
+USE AstronoMy;
 
-USE aquatech;
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14)
+
+-- CRIAÇÃO DAS TABELAS
+CREATE TABLE Usuario (
+idUsuario int primary key auto_increment,
+nome varchar(100),
+email varchar(320),
+telefone char(11),
+dtNasc date,
+senha varchar(100),
+dtCadastro datetime
 );
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE Estudo (
+idEstudo int primary key auto_increment,
+nome varchar(100),
+tema varchar(100),
+qtdPergunta int
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE Notas (
+tentativa int,
+fkUsuario int,
+fkEstudo int,
+primary key(tentativa , fkUsuario , fkEstudo),
+acertos int
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
+-- CONFIGURAÇÃO DAS CHAVES ESTRANGEIRAS
+ALTER TABLE Notas
+	ADD CONSTRAINT fkUsuarioNota foreign key (fkUsuario)
+		REFERENCES Usuario (idUsuario);
 
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
+ALTER TABLE Notas
+	ADD CONSTRAINT fkEstudoNotas foreign key (fkEstudo)
+		REFERENCES Estudo (idEstudo);
+
+        
+        
+-- VISUALIZAÇÃO DE DADOS DAS TABELAS
+-- VISUALIZAÇÃO INDIVIDUAL
+SELECT * FROM Usuario;
+SELECT * FROM Estudo;
+SELECT * FROM Notas;
+        
+-- VISUALIZAR DADOS DOS ESTUDOS E SUAS NOTAS
+SELECT * FROM Estudo
+	JOIN Notas
+		ON fkEstudo = idEstudo;
+        
+-- SELECIONAR DADOS DOS ESTUDOS E DADOS DOS USUARIOS QUE ESTUDARAM
+SELECT * FROM Estudo
+	JOIN Notas
+		ON fkForum = idEstudo
+	JOIN Usuario
+		ON fkUsuario = idUsuario;

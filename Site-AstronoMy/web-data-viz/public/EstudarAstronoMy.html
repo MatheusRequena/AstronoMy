@@ -33,40 +33,32 @@
     <div class="peso">
         <span class="tema1">MEU PESO EM <br> DIFERENTES PLANETAS</span>
         <div class="botoes">
-            <button>ESTUDAR</button>
-            <button>QUIZ</button>
+            <button onclick="estudo1()">ESTUDAR</button>
+            <button onclick="quiz1()">QUIZ</button>
         </div>
     </div>
 
     <div class="sistemaSolar">
         <span class="tema2">CURIOSIDADES DO <br> SISTEMA SOLAR</span>
         <div class="botoes">
-            <button>ESTUDAR</button>
-            <button>QUIZ</button>
+            <button onclick="estudo2()">ESTUDAR</button>
+            <button onclick="quiz2()">QUIZ</button>
         </div>
     </div>
 
     <div class="planetas">
         <span class="tema1">DIFERENTES MUNDOS<br> PELA GALAXIA</span>
         <div class="botoes">
-            <button>ESTUDAR</button>
-            <button>QUIZ</button>
-        </div>
-    </div>
-
-    <div class="terra">
-        <span class="tema2">O PLANETA DA <br> VIDA: A TERRA!</span>
-        <div class="botoes">
-            <button>ESTUDAR</button>
-            <button>QUIZ</button>
+            <button onclick="estudo3()">ESTUDAR</button>
+            <button onclick="quiz3()">QUIZ</button>
         </div>
     </div>
 
     <div class="rotacao">
-        <span class="tema1">PORQUE OS <br> ASTROS GIRAM? </span>
+        <span class="tema2">PORQUE OS <br> ASTROS GIRAM? </span>
         <div class="botoes">
-            <button>ESTUDAR</button>
-            <button>QUIZ</button>
+            <button onclick="estudo4()">ESTUDAR</button>
+            <button onclick="quiz4()">QUIZ</button>
         </div>
     </div>
 
@@ -77,3 +69,33 @@
 </body>
 
 </html>
+
+<script>
+    function estudo1(){
+        window.location.href = 'EstudoPesoAstronoMy.html'
+    }
+    function quiz1(){
+        window.location.href = 'QuizPesoAstronoMy.html'
+    }
+
+    function estudo2(){
+        window.location.href = 'EstudoSistemaSolarAstronoMy.html'
+    }
+    function quiz2(){
+        window.location.href = 'QuizSistemaSolarAstronoMy.html'
+    }
+
+    function estudo3(){
+        window.location.href = 'EstudoPlanetasAstronoMy.html'
+    }
+    function quiz3(){
+        window.location.href = 'QuizPlanetasAstronoMy.html'
+    }
+    
+    function estudo4(){
+        window.location.href = 'EstudoRotacaoAstronoMy.html'
+    }
+    function quiz4(){
+        window.location.href = 'QuizRotacaoAstronoMy.html'
+    }
+</script>
