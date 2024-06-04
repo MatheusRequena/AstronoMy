@@ -324,7 +324,7 @@
 }
 
 .estudar .peso {
-    background-image: url();
+    background-image: url(img/BannerPeso.png);
     background-repeat: no-repeat;
     background-size: 100%;
     border-bottom: 5px solid #563872;
@@ -335,7 +335,7 @@
 }
 
 .estudar .sistemaSolar {
-    background-image: url();
+    background-image: url(img/BannerSistemaSolar.png);
     background-repeat: no-repeat;
     background-size: 100%;
     border-bottom: 5px solid #563872;
@@ -345,16 +345,6 @@
 }
 
 .estudar .planetas {
-    background-image: url();
-    background-repeat: no-repeat;
-    background-size: 100%;
-    border-bottom: 5px solid #563872;
-    display: flex;
-    flex-direction: column;
-    padding: 2%;    
-}
-
-.estudar .terra {
     background-image: url();
     background-repeat: no-repeat;
     background-size: 100%;
