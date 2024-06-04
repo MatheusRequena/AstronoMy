@@ -61,20 +61,13 @@
         var senha = inputSenha.value;
 
         // Limpeza dos avisos
-        avisoEmail.innerHTML = ``;
-        avisoSenha.innerHTML = ``;
         avisoLogin.innerHTML = ``;
-        aguardar();
 
 if (email == "" || senha == "") {
-    cardErro.style.display = "block"
-    mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-    finalizarAguardar();
+    avisoLogin.innerHTML = `Preencha todos os campos!`;
     return false;
 }
-else {
-    setInterval(sumirMensagem, 5000)
-}
+
 
 console.log("FORM LOGIN: ", email);
 console.log("FORM SENHA: ", senha);
@@ -85,8 +78,8 @@ fetch("/usuarios/autenticar", {
         "Content-Type": "application/json"
     },
     body: JSON.stringify({
-        emailServer: emailVar,
-        senhaServer: senhaVar
+        emailServer: email,
+        senhaServer: senha
     })
 }).then(function (resposta) {
     console.log("ESTOU NO THEN DO entrar()!")
@@ -99,22 +92,18 @@ fetch("/usuarios/autenticar", {
             console.log(JSON.stringify(json));
             sessionStorage.EMAIL_USUARIO = json.email;
             sessionStorage.NOME_USUARIO = json.nome;
-            sessionStorage.ID_USUARIO = json.id;
-            sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+            sessionStorage.ID_USUARIO = json.idUsuario;
 
             setTimeout(function () {
-                window.location = "./dashboard/cards.html";
-            }, 1000); // apenas para exibir o loading
+                window.location = "EstudarAstronoMy.html";
+            }, 500); // apenas para exibir o loading
 
         });
 
     } else {
-
-        console.log("Houve um erro ao tentar realizar o login!");
-
+        avisoLogin.innerHTML = `E-mail ou senha incorretos!`
         resposta.text().then(texto => {
             console.error(texto);
-            finalizarAguardar(texto);
         });
     }
 
@@ -124,9 +113,4 @@ fetch("/usuarios/autenticar", {
 
 return false;
 }
-
-function sumirMensagem() {
-cardErro.style.display = "none"
-}
-
 </script>
