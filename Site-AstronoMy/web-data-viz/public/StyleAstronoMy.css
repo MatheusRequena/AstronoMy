@@ -34,10 +34,14 @@
     margin-top: 2.5%;
     margin-right: 1%;
     padding: 0px;
-    color: #563872e9;
+    color: #bbabe8;
+    background-color: #563872;
+    border: #563872 3px solid;
+    border-radius: 5px;
+    height: 100%;
     font-family: Trispace;
     text-decoration: none;
-    font-weight: 930;
+    font-weight:600;
     font-size: 20px;
 }
 
@@ -271,10 +275,12 @@
     font-size: 50px;
     font-weight: 900;
     font-style: italic;
-    padding: 2%;
+    padding: 2%;    
+    color: #bbabe8;
 }
 
 .estudar .titulo .subtitulo {
+    color: #bbabe8;
     font-style: none;
     font-weight: 500;
     font-size: 45px;
@@ -345,7 +351,7 @@
 }
 
 .estudar .planetas {
-    background-image: url();
+    background-image: url(img/BannerPlanetas.png);
     background-repeat: no-repeat;
     background-size: 100%;
     border-bottom: 5px solid #563872;
@@ -355,7 +361,7 @@
 }
 
 .estudar .rotacao {
-    background-image: url();
+    background-image: url(img/BannerRotacao.png);
     background-repeat: no-repeat;
     background-size: 100%;
     border-bottom: 2px solid #563872;

@@ -65,6 +65,6 @@ SELECT * FROM Estudo
 -- SELECIONAR DADOS DOS ESTUDOS E DADOS DOS USUARIOS QUE ESTUDARAM
 SELECT * FROM Estudo
 	JOIN Notas
-		ON fkForum = idEstudo
+		ON fkEstudo = idEstudo
 	JOIN Usuario
 		ON fkUsuario = idUsuario;
