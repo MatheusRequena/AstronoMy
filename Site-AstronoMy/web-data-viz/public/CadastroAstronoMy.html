@@ -58,15 +58,12 @@
             <input type="password" placeholder="Confirme sua senha" id="inputConfirmacao">
             <div class="aviso" id="avisoConfirmacao"></div>
         </div>
-        <button onclick="cadastrar()">CADASTRAR-SE</button>
+        <div id="botao"><button onclick="cadastrar()" >CADASTRAR-SE</button></div>
         <div id="avisoConclusao" class="aviso"></div>
+        <br> <br>
+        <a href="LoginAstronoMy.html">Já tenho cadastro!</a>
     </div>
     <br>
-    <select id="selectPerfil" onchange="selecionar()">
-        <option value="#" hidden></option>
-        <option value="perfil">Perfil</option>
-        <option value="sair">Sair</option>
-    </select>
 
     <!-- Footer -->
     <div class="footer">
@@ -314,7 +311,9 @@
 
         if (true) {
 
-          avisoConclusao.innerHTML = `Cadastro realizado! Aguarde um momento...`;
+            botao.innerHTML = ``;
+            avisoConclusao.innerHTML = `Cadastro realizado! Aguarde um momento...`;
+
 
           setTimeout(() => {
             window.location = "LoginAstronoMy.html";

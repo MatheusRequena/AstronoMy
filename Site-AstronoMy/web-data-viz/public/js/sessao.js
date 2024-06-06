@@ -10,7 +10,7 @@ function validarSessao() {
         <a href="index.html" class="${index}">Inicio</a>
         <a href="EstudarAstronoMy.html" class="${estudar}">Estudar</a>
         <select id="selectPerfil" onchange="selecionar()">
-        <option value="#" hidden selected>${nome} ‎</option>
+        <option value="#" hidden selected>${nome} &lrm; </option>
         <option value="perfil">Perfil</option>
         <option value="sair">Sair</option>
         `;
