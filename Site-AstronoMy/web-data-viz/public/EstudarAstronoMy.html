@@ -10,16 +10,10 @@
     <title>AstronoMy | Estudar</title>
 </head>
 
-<body class="estudar">
+<body class="estudar" onload="validarSessao()">
 
     <!-- Header -->
-    <div class="header">
-        <a href="index.html"><img src="img/LogoAstronoMy.png" alt="Logo AstronoMy" class="logo"></a>
-        <a href="index.html" class="link">Inicio</a>
-        <a href="EstudarAstronoMy.html" class="atual">Estudar</a>
-        <a href="CadastroAstronoMy.html" class="link">Cadastre-se</a>
-        <a href="LoginAstronoMy.html" class="link">Entrar</a>
-    </div>
+    <div class="header" id="header"></div>
 
     <!-- Conteúdo da Tela -->
     <!-- Titulo da página -->
@@ -71,6 +65,25 @@
 </html>
 
 <script>
+    
+    // Variaveis para criação de Header
+    var index = `link`
+    var estudar = `atual`
+    var login = `link`
+    var cadastro= `link`
+    
+    function selecionar(){
+        var opcao = selectPerfil.value;
+
+        if(opcao == 'perfil'){
+
+        }
+
+        if (opcao == 'sair'){
+            limparSessao()
+        }
+    }
+    
     function estudo1(){
         window.location.href = 'EstudoPesoAstronoMy.html'
     }

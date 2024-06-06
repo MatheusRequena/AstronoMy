@@ -10,15 +10,10 @@
     <title>AstronoMy | Login</title>
 </head>
 
-<body class="login">
+<body class="login" onload="validarSessao()">
+    
     <!-- Header -->
-    <div class="header">
-        <a href="index.html"><img src="img/LogoAstronoMy.png" alt="Logo AstronoMy" class="logo"></a>
-        <a href="index.html" class="link">Inicio</a>
-        <a href="EstudarAstronoMy.html" class="link">Estudar</a>
-        <a href="CadastroAstronoMy.html" class="link">Cadastre-se</a>
-        <a href="LoginAstronoMy.html" class="atual">Entrar</a>
-    </div>
+    <div class="header" id="header"></div>
 
     <!-- Conteúdo da Tela -->
     <div class="titulo">
@@ -53,6 +48,12 @@
 </html>
 
 <script>
+
+    // Variaveis para criação de Header
+    var index = `link`
+    var estudar = `link`
+    var login = `atual`
+    var cadastro = `link`
 
     // Função para entrar com um usuario
     function entrar() {

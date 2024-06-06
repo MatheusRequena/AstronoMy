@@ -11,16 +11,10 @@
 </head>
 
 
-<body class="home">
+<body class="home" onload="validarSessao()">
 
     <!-- Header -->
-    <div class="header">
-        <a href="index.html"><img src="img/LogoAstronoMy.png" alt="Logo AstronoMy" class="logo"></a>
-        <a href="index.html" class="atual">Inicio</a>
-        <a href="EstudarAstronoMy.html" class="link">Estudar</a>
-        <a href="CadastroAstronoMy.html" class="link">Cadastre-se</a>
-        <a href="LoginAstronoMy.html" class="link">Entrar</a>
-    </div>
+    <div class="header" id="header"></div>
 
     <!-- Conteúdo da Tela -->
     <!-- Banner -->
@@ -31,15 +25,7 @@
     </div>
 
     <!-- Estudar -->
-    <div class="fundoEstudar">
-        <label class="tituloEstudar">ESTUDE CONOSCO</label>
-        <span>Para estudar, não esqueça de se cadastrar!</span>
-        <div class="botoes">
-            <button onclick="estudar()">ESTUDAR</button>
-            <button onclick="entrar()">ENTRAR</button>
-            <button onclick="cadastrar()">CADASTRAR</button>
-        </div>
-    </div>
+    <div class="fundoEstudar" id="homeEstudar"></div>
     <!-- Sobre o Projeto -->
     <div class="fundoSobre">
         <label class="tituloSobre">O QUE É ASTRONO<i class="nome">MY</i>?</label>
@@ -103,7 +89,26 @@
 </body>
 
 <script>
-    function estudar() {
+
+    // Variaveis para criação de Header
+    var index = `atual`
+    var estudar = `link`
+    var login = `link`
+    var cadastro= `link`
+
+    function selecionar(){
+        var opcao = selectPerfil.value;
+
+        if(opcao == 'perfil'){
+
+        }
+
+        if (opcao == 'sair'){
+            limparSessao()
+        }
+    }
+
+    function estudo() {
         window.location.href = 'EstudarAstronoMy.html';
     }
 

@@ -10,17 +10,10 @@
     <title>AstronoMy | Cadastro</title>
 </head>
 
-
-<body class="cadastro">
+<body class="cadastro" onload="validarSessao()">
 
     <!-- Header -->
-    <div class="header">
-        <a href="index.html"><img src="img/LogoAstronoMy.png" alt="Logo AstronoMy" class="logo"></a>
-        <a href="index.html" class="link">Inicio</a>
-        <a href="EstudarAstronoMy.html" class="link">Estudar</a>
-        <a href="CadastroAstronoMy.html" class="atual">Cadastre-se</a>
-        <a href="LoginAstronoMy.html" class="link">Entrar</a>
-    </div>
+    <div class="header" id="header"></div>
 
     <!-- Conteúdo da Tela -->
     <div class="titulo">
@@ -69,6 +62,11 @@
         <div id="avisoConclusao" class="aviso"></div>
     </div>
     <br>
+    <select id="selectPerfil" onchange="selecionar()">
+        <option value="#" hidden></option>
+        <option value="perfil">Perfil</option>
+        <option value="sair">Sair</option>
+    </select>
 
     <!-- Footer -->
     <div class="footer">
@@ -79,6 +77,12 @@
 </html>
 
 <script>
+    
+    // Variaveis para criação de Header
+    var index = `link`
+    var estudar = `link`
+    var login = `link`
+    var cadastro= `atual`
 
     // Função para cadastrar o usuário
     function cadastrar() {

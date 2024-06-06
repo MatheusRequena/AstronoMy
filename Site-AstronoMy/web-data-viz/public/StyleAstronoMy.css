@@ -50,6 +50,19 @@
     height: 80px;
 }
 
+.header select {
+    margin: 0px;
+    padding: 0px;
+    color: #563872e9;
+    border: none;
+    background-color: white;
+    font-family: Trispace;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
 
 /* FOOTER */
 .footer {
@@ -140,7 +153,7 @@
     padding-top: 7px;
     padding-bottom: 7px;
     font-size: 20px;
-    width: 50%;
+    width: 100%;
     border: 3px solid #563872e9;
     border-radius: 10px;
     background-color: whitesmoke;
