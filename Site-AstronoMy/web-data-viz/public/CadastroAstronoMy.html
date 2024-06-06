@@ -61,7 +61,7 @@
         <div id="botao"><button onclick="cadastrar()" >CADASTRAR-SE</button></div>
         <div id="avisoConclusao" class="aviso"></div>
         <br> <br>
-        <a href="LoginAstronoMy.html">Já tenho cadastro!</a>
+        <a id="linkLogin" href="LoginAstronoMy.html">Já tenho cadastro!</a>
     </div>
     <br>
 
@@ -312,6 +312,7 @@
         if (true) {
 
             botao.innerHTML = ``;
+            linkLogin.innerHTML = ``;
             avisoConclusao.innerHTML = `Cadastro realizado! Aguarde um momento...`;
 
 
