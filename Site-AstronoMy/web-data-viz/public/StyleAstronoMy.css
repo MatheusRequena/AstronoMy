@@ -600,3 +600,78 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: center;
 }
+
+
+
+/* PERFIL */
+.perfil {
+    margin: 0px;
+    background-color: black;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-family: Trispace;
+}
+
+.perfil .ficha {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 17%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    background-color: lightgray;
+    border-radius: 10px;
+    width: 70%;
+    height: 40%;
+}
+
+.perfil .ficha h1 {
+    color: #8C52FF;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    margin: 0%;
+    padding-bottom: 2%;
+    margin-bottom: 3%;
+    margin-top: 2%;
+    border-bottom: black solid 3px;
+}
+
+.perfil .ficha .conteudo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.perfil .ficha .foto {
+    background-image: url(img/Perfil.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: black;
+    width: 340px;
+    height: 340px;
+    margin: 2%;
+    margin-top: 0%;
+    border: #563872 solid 10px;
+    border-radius: 20%;
+}
+
+.perfil .ficha .informacoes {
+    color: black;
+    font-size: 20px;
+}
+
+.perfil .ficha .campo {
+    margin-bottom: 2.5%;
+}
+
+.perfil .ficha .campo label {
+    color: #4d2b6d;
+    font-weight: bold;
+}
+
+.perfil .ficha .grafico {
+    background-color: none;
+    color: black;
+}

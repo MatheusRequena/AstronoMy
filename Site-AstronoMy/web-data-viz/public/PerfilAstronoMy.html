@@ -7,20 +7,157 @@
   <link rel="stylesheet" href="StyleAstronoMy.css">
   <link rel="icon" href="img/GalaxiaAstronoMy.png">
   <script src="./js/sessao.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>AstronoMy | Perfil</title>
 </head>
 
-<body class="perfil" onload="validarSessao()">
+<body class="perfil" onload="validarSessao() , pegarDados()">
 
   <!-- Header -->
   <div class="header" id="header"></div>
 
   <!-- Conteúdo da Tela -->
-  <div id="ficha">
-    <h1></h1>
+  <div class="ficha">
+    <h1>CERTIFICADO DE ASTRONAUTA</h1>
+    <div class="conteudo">
+      <img src="" alt=" " class="foto">
+      <div class="informacoes">
+
+        <div class="campo">
+          <label>Nome:</label>
+          <span id="nome"></span>
+        </div>
+
+        <div class="campo">
+          <label>Email:</label>
+          <span>xxxxx@xxxxx.xxx</span>
+        </div>
+
+        <div class="campo">
+          <label>Data de Nascimento:</label>
+          <span>xx/xx/xxxx</span>
+        </div>
+
+        <div class="campo">
+          <label>Entrou em:</label>
+          <span>xx/xx/xxxx</span>
+        </div>
+
+        <div class="campo">
+          <label>Perguntas já respondidas:</label>
+          <span>XX</span>
+        </div>
+
+        <div class="campo">
+          <label>Perguntas acertadas:</label>
+          <span>XX</span>
+        </div>
+
+        <canvas id="desempenho" class="grafico"></canvas>
+      </div>
+    </div>
   </div>
+
+
 
   <!-- Footer -->
   <div class="footer">
     <span>Copyright 2024 &copy; Designed by Matheus Requena</span>
-  </div
+  </div>
+
+</body>
+
+<script>
+  // Variáveis para criação da Header
+  index = 'link'
+  estudar = 'link'
+
+  // Variavéis dos dados do usuário
+  nome.innerHTML = `${nome}`
+
+  // Gráfico
+  // Meses
+  const labels = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho'
+  ];
+
+  // Acertos
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Acertos por mês',
+      backgroundColor: '#563872',
+      borderColor: '#563872',
+      data: [2, 6, 5, 9, 9, 10],
+    }]
+  };
+
+  // Configurações do gráfico
+  const config = {
+    type: 'line',
+    data: data,
+    options: {
+      scales: {
+        x: {
+          grid: {
+            color: '',
+          }
+        },
+        y: {
+          grid: {
+            color: 'gray',
+          }
+        }
+      }
+    }
+  };
+
+  // Plotagem do gráfico
+  const desempenho = new Chart(
+    document.getElementById('desempenho'),
+    config
+  );
+
+  function selecionar() {
+    var opcao = selectPerfil.value;
+    
+    if (opcao == 'perfil') {
+      window.location.href = 'PerfilAstronoMy.html'
+    }
+
+    if (opcao == 'sair') {
+      limparSessao()
+    }
+  }
+  
+  function pegarDados(){
+    fetch("/usuarios/listar").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("feed_container");
+                    feed.innerHTML = "";
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+  }
+</script>
