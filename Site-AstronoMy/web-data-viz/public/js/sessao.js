@@ -7,7 +7,7 @@ function validarSessao() {
 
     if (email != null && nome != null) {
         header.innerHTML = `<a href="index.html"><img src="img/LogoAstronoMy.png" alt="Logo AstronoMy" class="logo"></a>
-        <a href="index.html" class="${index}">Inicio</a>
+        <a href="index.html" class="${index}">Início</a>
         <a href="EstudarAstronoMy.html" class="${estudar}">Estudar</a>
         <select id="selectPerfil" onchange="selecionar()">
         <option value="#" hidden selected>${nome} &lrm; </option>
@@ -22,7 +22,7 @@ function validarSessao() {
         </div>`;
     } else {
         header.innerHTML = `<a href="index.html"><img src="img/LogoAstronoMy.png" alt="Logo AstronoMy" class="logo"></a>
-        <a href="index.html" class="${index}">Inicio</a>
+        <a href="index.html" class="${index}">Início</a>
         <a href="CadastroAstronoMy.html" class="${cadastro}">Cadastre-se</a>
         <a href="LoginAstronoMy.html" class="${login}">Entrar</a> 
     </select>`
