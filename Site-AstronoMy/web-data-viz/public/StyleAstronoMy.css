@@ -41,7 +41,7 @@
     height: 100%;
     font-family: Trispace;
     text-decoration: none;
-    font-weight:600;
+    font-weight: 600;
     font-size: 20px;
 }
 
@@ -121,7 +121,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 5px #563872 solid;   
+    border-bottom: 5px #563872 solid;
 }
 
 .home .tituloEstudar {
@@ -138,7 +138,7 @@
     font-size: 25px;
 }
 
-.home .botoes{
+.home .botoes {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -279,7 +279,7 @@
     font-family: Trispace;
 }
 
-.estudar .titulo{
+.estudar .titulo {
     background-image: url(img/TituloEstudar.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -288,7 +288,7 @@
     font-size: 50px;
     font-weight: 900;
     font-style: italic;
-    padding: 2%;    
+    padding: 2%;
     color: #bbabe8;
 }
 
@@ -300,7 +300,7 @@
     margin-top: 0.7%;
 }
 
-.estudar .tema1{
+.estudar .tema1 {
     display: flex;
     justify-content: flex-start;
     text-align: start;
@@ -310,7 +310,7 @@
     margin-left: 0%;
 }
 
-.estudar .tema2{
+.estudar .tema2 {
     display: flex;
     justify-content: flex-end;
     text-align: end;
@@ -320,7 +320,7 @@
     margin-right: 0%;
 }
 
-.estudar .botoes{
+.estudar .botoes {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -350,7 +350,7 @@
     border-top: 5px solid #563872;
     display: flex;
     flex-direction: column;
-    padding: 2%;    
+    padding: 2%;
 }
 
 .estudar .sistemaSolar {
@@ -360,7 +360,7 @@
     border-bottom: 5px solid #563872;
     display: flex;
     flex-direction: column;
-    padding: 2%;    
+    padding: 2%;
 }
 
 .estudar .planetas {
@@ -370,7 +370,7 @@
     border-bottom: 5px solid #563872;
     display: flex;
     flex-direction: column;
-    padding: 2%;    
+    padding: 2%;
 }
 
 .estudar .rotacao {
@@ -380,7 +380,7 @@
     border-bottom: 2px solid #563872;
     display: flex;
     flex-direction: column;
-    padding: 2%;    
+    padding: 2%;
 }
 
 
@@ -674,4 +674,60 @@ input::-webkit-inner-spin-button {
 .perfil .ficha .grafico {
     background-color: none;
     color: black;
+}
+
+
+
+/* PESO */
+.telaPeso {
+    margin: 0px;
+    background-color: black;
+    color: #8C52FF;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-family: Trispace;
+}
+
+.telaPeso .fundo1 {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 2%;
+}
+
+.telaPeso .paragrafo1 {
+    text-align: left;
+    font-size: 30px;
+    width: 60%;
+    margin-left: 2%;
+}
+
+.telaPeso .fundo2 {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-top: #4d2b6d 5px solid;
+    border-bottom: #4d2b6d 5px solid;
+}
+
+.telaPeso .paragrafo2 {
+    text-align: right;
+    font-size: 30px;
+    width: 60%;
+    margin-right: 2%;
+}
+
+.telaPeso .fundo3 {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 2%;
+}
+
+.telaPeso .paragrafo3 {
+    text-align: left;
+    font-size: 30px;
+    width: 60%;
+    margin-left: 2%;
 }
