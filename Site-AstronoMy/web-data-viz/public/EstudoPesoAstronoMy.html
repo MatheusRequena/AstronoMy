@@ -17,32 +17,43 @@
 
     <!-- Conteúdo da Tela -->
     <div class="fundo1">
+        <span class="titulo1">O PLANETA QUE ESTOU MUDA MEU PESO?</span>
         <div class="paragrafo1">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet class suscipit, commodi numquam
-            quclassem voluptate et eligendi maxime velit vel esse incclassunt quia sint voluptatibus architecto, optio,
-            atque eveniet porro.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis aspernatur, eius magnam
-            perferendis temporibus architecto, accusamus eos vel voluptatibus, quclassem molestias laborum soluta! Unde
-            culpa error soluta libero vero obcaecati!</p>
+            <p>Você já deve ter visto curiosidades que dizem que você seria mais leve ou mais pesado em outro planeta,
+                ou então você já deve ter escutado a frase "Você não está pesado, só está no planeta errado". Mas
+                dificilmente você recebe uma explicação desse fenômeno, mas estamos aqui para retirar qualquer dúvida!
+            </p>
+            <p>Só para constar, sim, essas afirmações são verdade, seu peso realmente muda de planeta em planeta, e para
+                matar a curiosidade, a grande responsável por esse fenômeno é nada mais nada menos que a
+                <b>gravidade</b>!</p>
         </div>
     </div>
 
     <div class="fundo2">
+        <span class="titulo2">MAS O QUE É PESO?</span>
         <div class="paragrafo2">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione natus recusandae iusto
-        aliquclass quia temporibus tempora nulla, eligendi odit molestias expedita repellendus rem non debitis corrupti
-        vero ipsa labore consectetur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum officia architecto
-        beatae quasi autem vel ullam? Debitis voluptatum nobis reiciendis.</p>
-    </div>
+            <p>Essa pergunta pode parecer simples, mas entende-la é essencial para que você consiga continuar neste
+                assunto. Basicamente, seu peso não é algo exato, seu peso depende da sua massa (que muita gente acha que
+                significa o mesmo que o peso de um objeto, o que é um grande erro) e da gravidade, sendo assim, seu peso
+                é calculado usando uma simples equação, Peso = massa x gravidade, portanto, é possível notar que caso a
+                massa ou a gravidade se alterem, o peso final também será alterado</p>
+
+            <div class="calculadora"><label>CALCULE SUA MASSA</label> <br>
+                <input type="number" placeholder="Insira seu peso (em Kg)" id="inputPeso"> <br>
+                <button onclick="calcular()">CALCULAR MASSA</button> <br>
+                <span id="resposta" class="resposta"></span>
+            </div>
+        </div>
     </div>
 
     <div class="fundo3">
         <div class="paragrafo3">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus placeat repudiandae, quae
-        perspiciatis nisi cumque nobis repellendus iste, quod sunt </p>
-        <p>nesciunt culpa ipsum velit sint illo incidunt? Atque, nobis, voluptatem beatae velit nihil natus magni ipsum
-        cumque esse quisquam nisi.</p>
-    </div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus placeat repudiandae, quae
+                perspiciatis nisi cumque nobis repellendus iste, quod sunt </p>
+            <p>nesciunt culpa ipsum velit sint illo incidunt? Atque, nobis, voluptatem beatae velit nihil natus magni
+                ipsum
+                cumque esse quisquam nisi.</p>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -59,5 +70,22 @@
     var index = `link`
     var estudar = `atual`
 
+    function selecionar() {
+        var opcao = selectPerfil.value;
 
+        if (opcao == 'perfil') {
+            window.location.href = 'PerfilAstronoMy.html'
+        }
+
+        if (opcao == 'sair') {
+            limparSessao()
+        }
+    }
+
+    function calcular() {
+        peso = Number(inputPeso.value);
+        massa = peso / 9.8
+
+        resposta.innerHTML = `Sua massa é ${peso} ÷ 9.8 (gravidade da terra) = <b>${massa.toFixed(2)}kg</b>`
+    }
 </script>

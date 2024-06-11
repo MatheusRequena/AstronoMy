@@ -94,6 +94,12 @@ fetch("/usuarios/autenticar", {
             sessionStorage.EMAIL_USUARIO = json.email;
             sessionStorage.NOME_USUARIO = json.nome;
             sessionStorage.ID_USUARIO = json.idUsuario;
+            sessionStorage.NASCIMENTO_USUARIO = json.dtNasc;
+            sessionStorage.CADASTRO_USUARIO = json.dtCadastro;
+            sessionStorage.ACERTOS_USUARIO = json.acertos;
+            sessionStorage.PERGUNTAS_USUARIO = json.perguntas;
+
+            
 
             setTimeout(function () {
                 window.location = "EstudarAstronoMy.html";

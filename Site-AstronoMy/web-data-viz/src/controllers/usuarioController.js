@@ -2,9 +2,20 @@ var usuarioModel = require("../models/usuarioModel");
 var aquarioModel = require("../models/aquarioModel");
 
 function listar(req, res) {
-    usuarioModel.listar().then(function (resultado) {
+    let email = req.body.emailServer
+    usuarioModel.listar(email).then(function (resultado) {
+        console.log('Eae Tetheus, suave? Estamos aqui no listar do controller !!', resultado.length)
         if (resultado.length > 0) {
-            res.status(200).json(resultado);
+            console.log('entrei no if do controllllller')
+            console.log(resultado[0].nome)
+            res.json({
+                nome: resultado[0].nome,
+                email: resultado[0].email,
+                nascimento: resultado[0].dtNasc,
+                cadastro: resultado[0].dtCadastro,
+                perguntas: resultado[0].perguntas,
+                acertos: resultado[0].acertos
+            });
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
         }
@@ -38,7 +49,12 @@ function autenticar(req, res) {
                             idUsuario: resultadoAutenticar[0].idUsuario,
                             email: resultadoAutenticar[0].email,
                             nome: resultadoAutenticar[0].nome,
-                            senha: resultadoAutenticar[0].senha
+                            senha: resultadoAutenticar[0].senha,
+                            dtNasc: resultadoAutenticar[0].dtNasc,
+                            dtCadastro: resultadoAutenticar[0].dtCadastro,
+                            perguntas: resultadoAutenticar[0].perguntas,
+                            acertos: resultadoAutenticar[0].acertos
+
                         });
 
                     } else if (resultadoAutenticar.length == 0) {
@@ -98,8 +114,18 @@ function cadastrar(req, res) {
     }
 }
 
+function mostrar(req, res) {
+  graficoModel.mostrar().then(function(resultado){
+      // precisamos informar que o resultado voltará para o front-end como uma resposta em json
+      res.status(200).json(resultado);
+  }).catch(function(erro){
+      res.status(500).json(erro.sqlMessage);
+  })
+}
+
 module.exports = {
     autenticar,
     cadastrar,
-    listar
+    listar,
+    mostrar
 }

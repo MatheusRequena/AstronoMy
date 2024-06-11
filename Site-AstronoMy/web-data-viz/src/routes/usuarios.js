@@ -16,4 +16,9 @@ router.post("/listar", function (req, res) {
     usuarioController.listar(req, res);
 });
 
+router.get("/mostrar", function (req, res) {
+    // função a ser chamada quando acessar /grafico/mostrar
+    graficoController.mostrar(req, res);
+  });
+
 module.exports = router;

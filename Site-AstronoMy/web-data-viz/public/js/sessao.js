@@ -15,11 +15,11 @@ function validarSessao() {
         <option value="sair">Sair</option>
         `;
 
-        homeEstudar.innerHTML = `<label class="tituloEstudar">TUDO PRONTO</label>
-        <span>Não perca tempo, vamos estudar!!</span>
-        <div class="botoes">
-            <button onclick="estudo()">ESTUDAR</button>
-        </div>`;
+        // homeEstudar.innerHTML = `<label class="tituloEstudar">TUDO PRONTO</label>
+        // <span>Não perca tempo, vamos estudar!!</span>
+        // <div class="botoes">
+        //     <button onclick="estudo()">ESTUDAR</button>
+        // </div>`;
     } else {
         header.innerHTML = `<a href="index.html"><img src="img/LogoAstronoMy.png" alt="Logo AstronoMy" class="logo"></a>
         <a href="index.html" class="${index}">Início</a>

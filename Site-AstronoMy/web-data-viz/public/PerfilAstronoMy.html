@@ -1,163 +1,166 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="StyleAstronoMy.css" />
+    <link rel="icon" href="img/GalaxiaAstronoMy.png" />
+    <script src="./js/sessao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>AstronoMy | Perfil</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="StyleAstronoMy.css">
-  <link rel="icon" href="img/GalaxiaAstronoMy.png">
-  <script src="./js/sessao.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <title>AstronoMy | Perfil</title>
-</head>
+  <body class="perfil" onload="validarSessao() , pegarDados()">
+    <!-- Header -->
+    <div class="header" id="header"></div>
 
-<body class="perfil" onload="validarSessao() , pegarDados()">
+    <!-- Conteúdo da Tela -->
+    <div class="ficha">
+      <h1>CERTIFICADO DE ASTRONAUTA</h1>
+      <div class="conteudo">
+        <div class="foto"></div>
+        <div class="informacoes">
+          <div class="campo">
+            <label>Nome:</label>
+            <span id="divNome"></span>
+          </div>
 
-  <!-- Header -->
-  <div class="header" id="header"></div>
+          <div class="campo">
+            <label>Email:</label>
+            <span id="divEmail"></span>
+          </div>
 
-  <!-- Conteúdo da Tela -->
-  <div class="ficha">
-    <h1>CERTIFICADO DE ASTRONAUTA</h1>
-    <div class="conteudo">
-      <img src="" alt=" " class="foto">
-      <div class="informacoes">
+          <div class="campo">
+            <label>Data de Nascimento:</label>
+            <span id="divNascimento"></span>
+          </div>
 
-        <div class="campo">
-          <label>Nome:</label>
-          <span id="nome"></span>
+          <div class="campo">
+            <label>Entrou em:</label>
+            <span id="divCadastro"></span>
+          </div>
+
+          <div class="campo">
+            <label>Perguntas já respondidas:</label>
+            <span id="divRespostas"></span>
+          </div>
+
+          <div class="campo">
+            <label>Perguntas acertadas:</label>
+            <span id="divAcertos"></span>
+          </div>
+
+          <canvas id="desempenho" class="grafico"></canvas>
         </div>
-
-        <div class="campo">
-          <label>Email:</label>
-          <span>xxxxx@xxxxx.xxx</span>
-        </div>
-
-        <div class="campo">
-          <label>Data de Nascimento:</label>
-          <span>xx/xx/xxxx</span>
-        </div>
-
-        <div class="campo">
-          <label>Entrou em:</label>
-          <span>xx/xx/xxxx</span>
-        </div>
-
-        <div class="campo">
-          <label>Perguntas já respondidas:</label>
-          <span>XX</span>
-        </div>
-
-        <div class="campo">
-          <label>Perguntas acertadas:</label>
-          <span>XX</span>
-        </div>
-
-        <canvas id="desempenho" class="grafico"></canvas>
       </div>
     </div>
-  </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span>Copyright 2024 &copy; Designed by Matheus Requena</span>
+    </div>
+  </body>
+
+  <script>
+        // Variáveis para criação da Header
+        index = "link";
+        estudar = "link";
+
+        // Variavéis dos dados do usuário
+        function carregar_dados(json){
+          console.log(' ESTOU NO CARREGAR DADOS!!!!!!!!!!!!!!!',json)
 
 
+        divNome.innerHTML = `${sessionStorage.NOME_USUARIO}`;
+        divEmail.innerHTML = `${sessionStorage.EMAIL_USUARIO}`;
+        divNascimento.innerHTML = `${sessionStorage.NASCIMENTO_USUARIO}`;
+        divCadastro.innerHTML = `${sessionStorage.CADASTRO_USUARIO}`;
+        divRespostas.innerHTML = `${sessionStorage.PERGUNTAS_USUARIO}`;
+        divAcertos.innerHTML = `${sessionStorage.ACERTOS_USUARIO}`;
+    }
+        // Gráfico
+        // Meses
 
-  <!-- Footer -->
-  <div class="footer">
-    <span>Copyright 2024 &copy; Designed by Matheus Requena</span>
-  </div>
+        // fetch("/usuarios/mostrar", {
+        //     method: "POST",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //     },
+        //   })
 
-</body>
+          const labels = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"];
 
-<script>
-  // Variáveis para criação da Header
-  index = 'link'
-  estudar = 'link'
+        // Acertos
+        const data = {
+          labels: labels,
+          datasets: [
+            {
+              label: "Acertos por mês",
+              backgroundColor: "#563872",
+              borderColor: "#563872",
+              data: [2, 6, 5, 9, 9, 10],
+            },
+          ],
+        };
 
-  // Variavéis dos dados do usuário
-  nome.innerHTML = `${nome}`
+        // Configurações do gráfico
+        const config = {
+          type: "line",
+          data: data,
+          options: {
+            scales: {
+              x: {
+                grid: {
+                  color: "",
+                },
+              },
+              y: {
+                grid: {
+                  color: "gray"
+                },
+              },
+            },
+          },
+        };
 
-  // Gráfico
-  // Meses
-  const labels = [
-    'Janeiro',
-    'Fevereiro',
-    'Março',
-    'Abril',
-    'Maio',
-    'Junho'
-  ];
+        // Plotagem do gráfico
+        const desempenho = new Chart(document.getElementById("desempenho"), config);
 
-  // Acertos
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'Acertos por mês',
-      backgroundColor: '#563872',
-      borderColor: '#563872',
-      data: [2, 6, 5, 9, 9, 10],
-    }]
-  };
+        function selecionar() {
+          var opcao = selectPerfil.value;
 
-  // Configurações do gráfico
-  const config = {
-    type: 'line',
-    data: data,
-    options: {
-      scales: {
-        x: {
-          grid: {
-            color: '',
+          if (opcao == "perfil") {
+            window.location.href = "PerfilAstronoMy.html";
           }
-        },
-        y: {
-          grid: {
-            color: 'gray',
+
+          if (opcao == "sair") {
+            limparSessao();
           }
         }
-      }
-    }
-  };
 
-  // Plotagem do gráfico
-  const desempenho = new Chart(
-    document.getElementById('desempenho'),
-    config
-  );
-
-  function selecionar() {
-    var opcao = selectPerfil.value;
-    
-    if (opcao == 'perfil') {
-      window.location.href = 'PerfilAstronoMy.html'
-    }
-
-    if (opcao == 'sair') {
-      limparSessao()
-    }
-  }
-  
-  function pegarDados(){
-    fetch("/usuarios/listar").then(function (resposta) {
-            if (resposta.ok) {
-                if (resposta.status == 204) {
-                    var feed = document.getElementById("feed_container");
-                    var mensagem = document.createElement("span");
-                    mensagem.innerHTML = "Nenhum resultado encontrado."
-                    feed.appendChild(mensagem);
-                    throw "Nenhum resultado encontrado!!";
-                }
-
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-
-                    var feed = document.getElementById("feed_container");
-                    feed.innerHTML = "";
-
-                });
-            } else {
-                throw ('Houve um erro na API!');
-            }
-        }).catch(function (resposta) {
-            console.error(resposta);
-        });
-  }
-</script>
+        function pegarDados() {
+          // console.log(email)
+          fetch("/usuarios/listar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            // nomeServer: nome,
+            emailServer: sessionStorage.EMAIL_USUARIO,
+            // senhaServer: senha,
+            // telefoneServer: telefone,
+            // nascimentoServer: nascimentoFormatado
+          }),
+          }).then(function (resposta2) {
+              console.log("resposta2: ", resposta2);
+                carregar_dados(resposta2)
+            })
+            .catch(function (resposta2) {
+              console.log(`#ERRO: ${resposta2}`);
+            });
+        }
+  </script>
+</html>
