@@ -25,7 +25,7 @@ CREATE TABLE Tentativa (
 idTentativa int auto_increment,
 fkUsuario int,
 fkEstudo int,
-primary key(tentativa , fkUsuario , fkEstudo),
+primary key(idTentativa , fkUsuario , fkEstudo),
 acertos int,
 dtTentativa date
 );
@@ -42,7 +42,7 @@ INSERT INTO Estudo VALUES
 (default , 'Diferentes mundos pela galáxia' , 'Demonstrando alguns exoplanetas curiosos' , 7),
 (default , 'Por que os astros giram?' , 'Explicando a rotação dos planetas e sua influência nas horas do dia' , 6);
 
-INSERT INTO Notas VALUES
+INSERT INTO Tentativa VALUES
 (default , 1 , 1000 , 2 , current_date()), 
 (default , 1 , 1000 , 3 , current_date()), 
 (default , 1 , 1001 , 4, current_date()), 
@@ -53,12 +53,12 @@ INSERT INTO Notas VALUES
 
 
 -- CONFIGURAÇÃO DAS CHAVES ESTRANGEIRAS
-ALTER TABLE Notas
-	ADD CONSTRAINT fkUsuarioNota foreign key (fkUsuario)
+ALTER TABLE Tentativa
+	ADD CONSTRAINT fkUsuarioTentativa foreign key (fkUsuario)
 		REFERENCES Usuario (idUsuario);
 
-ALTER TABLE Notas
-	ADD CONSTRAINT fkEstudoNotas foreign key (fkEstudo)
+ALTER TABLE Tentativa
+	ADD CONSTRAINT fkEstudoTentativa foreign key (fkEstudo)
 		REFERENCES Estudo (idEstudo);
         
 

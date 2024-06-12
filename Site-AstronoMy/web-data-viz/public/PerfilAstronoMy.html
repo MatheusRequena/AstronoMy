@@ -62,105 +62,189 @@
   </body>
 
   <script>
-        // Variáveis para criação da Header
-        index = "link";
-        estudar = "link";
+    // Variáveis para criação da Header
+    index = "link";
+    estudar = "link";
 
-        // Variavéis dos dados do usuário
-        function carregar_dados(json){
-          console.log(' ESTOU NO CARREGAR DADOS!!!!!!!!!!!!!!!',json)
+    // Variaveis para ajudar a pltagem do grafico
+    var acertosJaneiro = 0;
+    var acertosFevereiro = 0;
+    var acertosMarco = 0;
+    var acertosAbril = 0;
+    var acertosMaio = 0;
+    var acertosJunho = 0;
+    var acertosJulho = 0;
+    var acertosAgosto = 0;
+    var acertosSetembro = 0;
+    var acertosOutubro = 0;
+    var acertosNovembro = 0;
+    var acertosDezembro = 0;
+    var respondidas = 0;
+    var acertosTotal = 0;
 
+    // Variavéis dos dados do usuário
+    function carregar_dados(json) {
+      console.log(" ESTOU NO CARREGAR DADOS!!!!!!!!!!!!!!!", json);
 
-        divNome.innerHTML = `${sessionStorage.NOME_USUARIO}`;
-        divEmail.innerHTML = `${sessionStorage.EMAIL_USUARIO}`;
-        divNascimento.innerHTML = `${sessionStorage.NASCIMENTO_USUARIO}`;
-        divCadastro.innerHTML = `${sessionStorage.CADASTRO_USUARIO}`;
-        divRespostas.innerHTML = `${sessionStorage.PERGUNTAS_USUARIO}`;
-        divAcertos.innerHTML = `${sessionStorage.ACERTOS_USUARIO}`;
+      var nascimento =
+        sessionStorage.NASCIMENTO_USUARIO[8] +
+        sessionStorage.NASCIMENTO_USUARIO[9] +
+        "/" +
+        sessionStorage.NASCIMENTO_USUARIO[5] +
+        sessionStorage.NASCIMENTO_USUARIO[6] +
+        "/" +
+        sessionStorage.NASCIMENTO_USUARIO[0] +
+        sessionStorage.NASCIMENTO_USUARIO[1] +
+        sessionStorage.NASCIMENTO_USUARIO[2] +
+        sessionStorage.NASCIMENTO_USUARIO[3];
+
+      var cadastro =
+        sessionStorage.CADASTRO_USUARIO[8] +
+        sessionStorage.CADASTRO_USUARIO[9] +
+        "/" +
+        sessionStorage.CADASTRO_USUARIO[5] +
+        sessionStorage.CADASTRO_USUARIO[6] +
+        "/" +
+        sessionStorage.CADASTRO_USUARIO[0] +
+        sessionStorage.CADASTRO_USUARIO[1] +
+        sessionStorage.CADASTRO_USUARIO[2] +
+        sessionStorage.CADASTRO_USUARIO[3];
+
+      divNome.innerHTML = `${sessionStorage.NOME_USUARIO}`;
+      divEmail.innerHTML = `${sessionStorage.EMAIL_USUARIO}`;
+      divNascimento.innerHTML = `${nascimento}`;
+      divCadastro.innerHTML = `${cadastro}`;
+      divRespostas.innerHTML = `${respondidas}`;
+      divAcertos.innerHTML = `${acertosTotal}`;
     }
-        // Gráfico
-        // Meses
 
-        // fetch("/usuarios/mostrar", {
-        //     method: "POST",
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //     },
-        //   })
+    const labels = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"];
 
-          const labels = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"];
-
-        // Acertos
-        const data = {
-          labels: labels,
-          datasets: [
-            {
-              label: "Acertos por mês",
-              backgroundColor: "#563872",
-              borderColor: "#563872",
-              data: [2, 6, 5, 9, 9, 10],
-            },
+    // Acertos
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Acertos por mês",
+          backgroundColor: "#563872",
+          borderColor: "#563872",
+          data: [
+            acertosJaneiro,
+            acertosFevereiro,
+            acertosMarco,
+            acertosAbril,
+            acertosMaio,
+            acertosJunho,
           ],
-        };
+        },
+      ],
+    };
 
-        // Configurações do gráfico
-        const config = {
-          type: "line",
-          data: data,
-          options: {
-            scales: {
-              x: {
-                grid: {
-                  color: "",
-                },
-              },
-              y: {
-                grid: {
-                  color: "gray"
-                },
-              },
+    // Configurações do gráfico
+    const config = {
+      type: "line",
+      data: data,
+      options: {
+        scales: {
+          x: {
+            grid: {
+              color: "",
             },
           },
-        };
-
-        // Plotagem do gráfico
-        const desempenho = new Chart(document.getElementById("desempenho"), config);
-
-        function selecionar() {
-          var opcao = selectPerfil.value;
-
-          if (opcao == "perfil") {
-            window.location.href = "PerfilAstronoMy.html";
-          }
-
-          if (opcao == "sair") {
-            limparSessao();
-          }
-        }
-
-        function pegarDados() {
-          // console.log(email)
-          fetch("/usuarios/listar", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
+          y: {
+            grid: {
+              color: "gray",
             },
-          body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
-            // nomeServer: nome,
-            emailServer: sessionStorage.EMAIL_USUARIO,
-            // senhaServer: senha,
-            // telefoneServer: telefone,
-            // nascimentoServer: nascimentoFormatado
-          }),
-          }).then(function (resposta2) {
-              console.log("resposta2: ", resposta2);
-                carregar_dados(resposta2)
-            })
-            .catch(function (resposta2) {
-              console.log(`#ERRO: ${resposta2}`);
-            });
+          },
+        },
+      },
+    };
+
+    // Plotagem do gráfico
+    const desempenho = new Chart(document.getElementById("desempenho"), config);
+
+    function selecionar() {
+      var opcao = selectPerfil.value;
+
+      if (opcao == "perfil") {
+        window.location.href = "PerfilAstronoMy.html";
+      }
+
+      if (opcao == "sair") {
+        limparSessao();
+      }
+    }
+
+    function pegarDados() {
+      // console.log(email)
+      var idUsuario = sessionStorage.ID_USUARIO;
+
+      fetch("/usuarios/listar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+            alert(resposta.length);
+
+            for (contagem = 0; contagem < resposta.length; contagem++) {
+              alert("entrei no for");
+              var dado = resposta[contagem];
+
+              if ((idUsuario = dado.fkUsuario)) {
+                var data = new Date(dado.dtTentativa);
+                var mes = data.getMonth();
+                var fkEstudo = dado.fkEstudo;
+                var qtdAcertos = Number(dado.acertos);
+
+                alert(mes);
+                if (mes == 0) {
+                  acertosJaneiro += qtdAcertos;
+                } else if (mes == 1) {
+                  acertosFevereiro += qtdAcertos;
+                } else if (mes == 2) {
+                  acertosMarco += qtdAcertos;
+                } else if (mes == 3) {
+                  acertosAbril += qtdAcertos;
+                } else if (mes == 4) {
+                  acertosMaio += qtdAcertos;
+                } else if (mes == 5) {
+                  acertosJunho += qtdAcertos;
+                } else if (mes == 6) {
+                  acertosJulho += qtdAcertos;
+                } else if (mes == 7) {
+                  acertosAgosto += qtdAcertos;
+                } else if (mes == 8) {
+                  acertosSetembro += qtdAcertos;
+                } else if (mes == 9) {
+                  acertosOutubro += qtdAcertos;
+                } else if (mes == 10) {
+                  acertosNovembro += qtdAcertos;
+                } else if (mes == 11) {
+                  acertosDezembro += qtdAcertos;
+                }
+
+                alert(qtdAcertos);
+                if ((fkEstudo = 1000)) respondidas += 5;
+              } else if ((fkEstudo = 1001)) {
+                respondidas += 13;
+              } else if ((fkEstudo = 1002)) {
+                respondidas += 7;
+              } else if ((fkEstudo = 1003)) {
+                respondidas += 6;
+              }
+
+              acertosTotal += qtdAcertos;
+            }
+
+            carregar_dados();
+          });
         }
+      });
+    }
   </script>
 </html>

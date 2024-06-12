@@ -2,19 +2,13 @@ var usuarioModel = require("../models/usuarioModel");
 var aquarioModel = require("../models/aquarioModel");
 
 function listar(req, res) {
-    let email = req.body.emailServer
-    usuarioModel.listar(email).then(function (resultado) {
-        console.log('Eae Tetheus, suave? Estamos aqui no listar do controller !!', resultado.length)
+    usuarioModel.listar().then(function (resultado) {
+        console.log('Estou no listar do controller !!', resultado.length)
         if (resultado.length > 0) {
             console.log('entrei no if do controllllller')
-            console.log(resultado[0].nome)
+            console.log(resultado)
             res.json({
-                nome: resultado[0].nome,
-                email: resultado[0].email,
-                nascimento: resultado[0].dtNasc,
-                cadastro: resultado[0].dtCadastro,
-                perguntas: resultado[0].perguntas,
-                acertos: resultado[0].acertos
+                resultado,
             });
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
