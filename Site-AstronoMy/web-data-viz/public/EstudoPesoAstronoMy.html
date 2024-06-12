@@ -16,43 +16,53 @@
     <div class="header" id="header"></div>
 
     <!-- Conteúdo da Tela -->
-    <div class="fundo1">
-        <span class="titulo1">O PLANETA QUE ESTOU MUDA MEU PESO?</span>
-        <div class="paragrafo1">
+    <div class="introducao">
+        <span class="tituloEsquerda">O PLANETA QUE ESTOU MUDA MEU PESO?</span>
+        <div class="paragrafoEsquerda">
             <p>Você já deve ter visto curiosidades que dizem que você seria mais leve ou mais pesado em outro planeta,
                 ou então você já deve ter escutado a frase "Você não está pesado, só está no planeta errado". Mas
                 dificilmente você recebe uma explicação desse fenômeno, mas estamos aqui para retirar qualquer dúvida!
             </p>
             <p>Só para constar, sim, essas afirmações são verdade, seu peso realmente muda de planeta em planeta, e para
                 matar a curiosidade, a grande responsável por esse fenômeno é nada mais nada menos que a
-                <b>gravidade</b>!</p>
+                <b>gravidade</b>!
+            </p>
         </div>
     </div>
 
-    <div class="fundo2">
-        <span class="titulo2">MAS O QUE É PESO?</span>
-        <div class="paragrafo2">
-            <p>Essa pergunta pode parecer simples, mas entende-la é essencial para que você consiga continuar neste
-                assunto. Basicamente, seu peso não é algo exato, seu peso depende da sua massa (que muita gente acha que
-                significa o mesmo que o peso de um objeto, o que é um grande erro) e da gravidade, sendo assim, seu peso
-                é calculado usando uma simples equação, Peso = massa x gravidade, portanto, é possível notar que caso a
-                massa ou a gravidade se alterem, o peso final também será alterado</p>
+    <div class="explicacao">
+        <span class="tituloDireita">MAS O QUE É PESO?</span>
+        <div class="linha">
 
-            <div class="calculadora"><label>CALCULE SUA MASSA</label> <br>
-                <input type="number" placeholder="Insira seu peso (em Kg)" id="inputPeso"> <br>
-                <button onclick="calcular()">CALCULAR MASSA</button> <br>
+            <div class="calculadora">
+                <label>CALCULE SUA MASSA</label>
+                <input type="number" placeholder="Insira seu peso (em Kg)" id="inputPeso">
+                <button onclick="calcular()">CALCULAR MASSA</button>
                 <span id="resposta" class="resposta"></span>
+            </div>
+
+            <div class="paragrafoDireita">
+                <p>Essa pergunta pode parecer simples, mas entende-la é essencial para que você consiga continuar neste
+                    assunto. Basicamente, seu peso não é algo exato, seu peso depende da sua massa (sim, massa e peso
+                    não são iguais) e da gravidade, sendo assim, seu peso é calculado usando uma simples equação:
+                    <br><br> <b><i>Peso = massa x gravidade</i></b> <br><br>
+                    Portanto, é claro que caso a massa ou a gravidade se alterem, o peso final também será alterado.
+                </p>
             </div>
         </div>
     </div>
 
-    <div class="fundo3">
-        <div class="paragrafo3">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus placeat repudiandae, quae
-                perspiciatis nisi cumque nobis repellendus iste, quod sunt </p>
-            <p>nesciunt culpa ipsum velit sint illo incidunt? Atque, nobis, voluptatem beatae velit nihil natus magni
-                ipsum
-                cumque esse quisquam nisi.</p>
+    <div class="conclusao">
+        <span class="tituloEsquerda">AGORA FAZ SENTIDO!</span>
+        <div class="paragrafoEsquerda">
+            <p>Sendo assim, é possível entender melhor porquê o peso muda em cada planeta, a gravidade mudou também! em
+                planetas com uma <b>gravidade maior</b>, como Júpiter ou Saturno, você <b>pesará mais</b>, pois a gravidade te "puxa"
+                mais para o chão, igual quando você coloca os pés em uma balança para seu amigo parecer mais pesado <br>
+                Por outro lado, em planetas com <b>menor gravidade</b> o contrário acontece, você fica <b>mais leve</b>, por isso os
+                astonautas conseguem pular tão alto e parecem flutuar como uma pena, pois estão pesando quase igual a
+                uma!</p>
+            <p>Mas porquê você fica mais pesado na Terra conforme cresce? Nestes casos, a gravidade não mudou, mas sua
+                massa sim. Recomendo comer menos feijão...</p>
         </div>
     </div>
 
@@ -86,6 +96,10 @@
         peso = Number(inputPeso.value);
         massa = peso / 9.8
 
-        resposta.innerHTML = `Sua massa é ${peso} ÷ 9.8 (gravidade da terra) = <b>${massa.toFixed(2)}kg</b>`
+        if (peso > 0) {
+            resposta.innerHTML = `Sua massa é ${peso} ÷ 9.8 (gravidade da terra) = <b>${massa.toFixed(2)}kg</b>`
+        } else {
+            resposta.innerHTML = `Insira um peso válido para descobrir sua massa!`
+        }
     }
 </script>
