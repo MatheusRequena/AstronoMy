@@ -373,16 +373,6 @@
     padding: 2%;
 }
 
-.estudar .rotacao {
-    background-image: url(img/BannerRotacao.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    border-bottom: 2px solid #563872;
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
-}
-
 
 /* CADASTRO */
 .cadastro {
@@ -1058,7 +1048,7 @@ input::-webkit-inner-spin-button {
 
 /* QUIZ PESO */
 
-.quizPeso {
+.quiz {
     margin: 0px;
     background-color: white;
     color: #4d2b6d;
@@ -1067,7 +1057,7 @@ input::-webkit-inner-spin-button {
     font-family: Trispace;
 }
 
-.quizPeso .tela {
+.quiz .tela {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -1076,27 +1066,27 @@ input::-webkit-inner-spin-button {
     margin-bottom: 3%;
 }
 
-.quizPeso h1 {
+.quiz h1 {
     font-size: 50px;
     margin: 0%;
     margin-top: 2%;
     text-decoration: underline;
 }
 
-.quizPeso h3 {
+.quiz h3 {
     font-size: 25px;
     margin-top: 5%;
     font-style: italic;
     color: gray;
 }
 
-.quizPeso .botoes {
+.quiz .botoes {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-.quizPeso button {
+.quiz button {
     margin-top: 3%;
     font-family: Trispace;
     padding-top: 10px;
@@ -1110,19 +1100,19 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
-.quizPeso .pergunta {
+.quiz .pergunta {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.quizPeso p {
+.quiz p {
     font-size: 33px;
     margin-top: 5%;
     color: #F66027;
 }
 
-.quizPeso .resposta {
+.quiz .resposta {
     text-align: center;
     font-size: 20px;
     font-style: italic;
@@ -1138,7 +1128,7 @@ input::-webkit-inner-spin-button {
     font-weight: 600;
 }
 
-.quizPeso label {
+.quiz label {
     font-size: 25px;
     margin-top: 2%;
     color: #F66027;

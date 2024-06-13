@@ -39,17 +39,29 @@ INSERT INTO Usuario VALUES
 INSERT INTO Estudo VALUES 
 (default , 'Meu peso em diferentes planetas' , 'Explicando a diferença de peso em diferentes gravidades' , 5),
 (default , 'Curiosidades do sistema solar' , 'Alguns fatos interessantes sobre nosso sistema' , 13),
-(default , 'Diferentes mundos pela galáxia' , 'Demonstrando alguns exoplanetas curiosos' , 7),
-(default , 'Por que os astros giram?' , 'Explicando a rotação dos planetas e sua influência nas horas do dia' , 6);
+(default , 'Diferentes mundos pela galáxia' , 'Demonstrando alguns exoplanetas curiosos' , 7);
 
 INSERT INTO Tentativa VALUES
-(default , 1 , 1000 , 2 , current_date()), 
-(default , 1 , 1000 , 3 , current_date()), 
-(default , 1 , 1001 , 4, current_date()), 
-(default , 1 , 1001 , 8, current_date()), 
-(default , 1 , 1002 , 4, current_date()), 
-(default , 1 , 1003 , 4, current_date()), 
-(default , 1 , 1003 , 4, current_date());
+(default , 1 , 1000 , 2 , '2024-01-03'), 
+(default , 1 , 1000 , 3 , '2024-01-05'), 
+(default , 1 , 1002 , 5 , '2024-01-05'), 
+(default , 1 , 1002 , 2 , '2024-01-17'), 
+(default , 1 , 1002 , 2 , '2024-02-01'), 
+(default , 1 , 1001 , 7 , '2024-02-05'), 
+(default , 1 , 1001 , 8 , '2024-02-06'), 
+(default , 1 , 1000 , 4, '2024-03-18'), 
+(default , 1 , 1001 , 7, '2024-03-12'), 
+(default , 1 , 1001 , 8, '2024-03-08'), 
+(default , 1 , 1001 , 10, '2024-03-24'), 
+(default , 1 , 1000 , 4, '2024-04-21'), 
+(default , 1 , 1000 , 5, '2024-04-14'), 
+(default , 1 , 1001 , 11, '2024-04-25'), 
+(default , 1 , 1000 , 5, '2024-04-07'), 
+(default , 1 , 1001 , 12, '2024-04-07'), 
+(default , 1 , 1002 , 6, '2024-04-07'), 
+(default , 1 , 1000 , 5 , '2024-05-02'), 
+(default , 1 , 1001 , 13 , '2024-05-13'), 
+(default , 1 , 1002 , 7 , '2024-05-22');
 
 
 -- CONFIGURAÇÃO DAS CHAVES ESTRANGEIRAS
@@ -104,64 +116,4 @@ SELECT Usuario.nome , email , dtNasc , dtCadastro , sum(qtdPerguntas) as pergunt
 SELECT sum(acertos) as acertos FROM Tentativa
 	JOIN Usuario
 		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE current_date() AND email = 'matheus@gmail.com';
-    
-SELECT sum(acertos) as acertos FROM Tentativa
-	JOIN Usuario
-		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE '%-01-%' AND email = 'matheus@gmail.com';
-    
-SELECT sum(acertos) as acertos FROM Tentativa
-	JOIN Usuario
-		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE '%-02-%' AND email = 'matheus@gmail.com';
-    
-SELECT sum(acertos) as acertos FROM Tentativa
-	JOIN Usuario
-		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE '%-03-%' AND email = 'matheus@gmail.com';
-    
-SELECT sum(acertos) as acertos FROM Tentativa
-	JOIN Usuario
-		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE '%-04-%' AND email = 'matheus@gmail.com';
-    
-SELECT sum(acertos) as acertos FROM Tentativa
-	JOIN Usuario
-		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE '%-05-%' AND email = 'matheus@gmail.com';
-    
-SELECT sum(acertos) as acertos FROM Tentativa
-	JOIN Usuario
-		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE '%-06-%' AND email = 'matheus@gmail.com';
-    
-SELECT sum(acertos) as acertos FROM Tentativa
-	JOIN Usuario
-		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE '%-07-%' AND email = 'matheus@gmail.com';
-
-SELECT sum(acertos) as acertos FROM Tentativa
-	JOIN Usuario
-		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE '%-08-%' AND email = 'matheus@gmail.com';
-    
-SELECT sum(acertos) as acertos FROM Tentativa
-	JOIN Usuario
-		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE '%-09-%' AND email = 'matheus@gmail.com';
-    
-SELECT sum(acertos) as acertos FROM Tentativa
-	JOIN Usuario
-		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE '%-10-%' AND email = 'matheus@gmail.com';
-    
-SELECT sum(acertos) as acertos FROM Tentativa
-	JOIN Usuario
-		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE '%-11-%' AND email = 'matheus@gmail.com';
-    
-SELECT sum(acertos) as acertos FROM Tentativa
-	JOIN Usuario
-		ON fkUsuario = idUsuario
-	WHERE dtTentativa LIKE '%-12-%' AND email = 'matheus@gmail.com';
+	WHERE email = 'matheus@gmail.com';

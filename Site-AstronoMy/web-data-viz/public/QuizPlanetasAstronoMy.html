@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="StyleAstronoMy.css">
+    <link rel="icon" href="img/GalaxiaAstronoMy.png">
+    <script src="./js/sessao.js"></script>
+    <title>AstronoMy | Quiz Planetas</title>
+</head>
+
+<body class="quiz" onload="validarSessao()">
+
+    <!-- Header -->
+    <div class="header" id="header"></div>
+
+    <!-- Conteúdo da Tela -->
+    <div id="tela" class="tela">
+        <h1>QUANDO SE SENTIR PRONTO, COMECE A RESPONDER AS PERGUNTAS!</h1>
+        <h3>Clique em "responda" para escolher a alternativa que deseja</h3>
+
+        <div class="botoes">
+            <button onclick="estudo()">ESTUDAR</button>
+            <button onclick="acertou()">COMEÇAR</button>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <span>Copyright 2024 &copy; Designed by Matheus Requena</span>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    // Variaveis para criação de Header
+    var index = `link`
+    var estudar = `atual`
+    var home = false
+
+    // Variaveis para auxiliar no quiz
+    var pergunta = 0
+    var acerto = 0
+    var mensagem = ''
+
+    function estudo() {
+        window.location.href = 'EstudoPlanetasAstronoMy.html'
+    }
+
+    function voltar() {
+        window.location.href = 'EstudarAstronoMy.html'
+    }
+
+    function repetir() {
+        window.location.href = 'QuizPlanetasAstronoMy.html'
+    }
+
+    function acertou() {
+        pergunta++
+
+        if (pergunta == 1) {
+            tela.innerHTML = `
+            <h1>PERGUNTA 1</h1>
+
+            <p>Qual desses exoplanetas é conhecido como "Super-Saturno"?</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="errado">Kepler-1b</option>
+                <option value="certo">J1407 b</option>
+                <option value="errado">55 Cracri e</option>
+                <option value="errado">TOI-1452</option>
+            </select>
+            `
+        } else if (pergunta == 2) {
+            acerto++
+            tela.innerHTML = `
+            <h1>PERGUNTA 2</h1>
+
+            <p>O que é um exoplaneta?</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="errado">Planetas que podem ter vida</option>
+                <option value="errado">Qualquer planeta que não tenha lua</option>
+                <option value="certo">Um planeta que não estão no Sistema Solar</option>
+                <option value="errado">Um planeta com mais de 23 luas</option>
+            </select>
+            `
+        } else if (pergunta == 3) {
+            acerto++
+            tela.innerHTML = `
+            <h1>PERGUNTA 3</h1>
+
+            <p>Porquê Janssen está tão perto de sua estrela?</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="certo">Ele foi puxado pela sua forte gravidade</option>
+                <option value="errado">Ele já nasceu perto da estrela</option>
+                <option value="errado">Ele foi atingido por um meteoro, que o empurrou</option>
+            </select>
+            `
+        } else if (pergunta == 4) {
+            acerto++
+            tela.innerHTML = `
+            <h1>PERGUNTA 4</h1>
+
+            <p>WASP-12b tem um formato estranho pois...</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="errado">Ele gira muito rápido em volta de sua estrela</option>
+                <option value="certo">Ele está sendo consumido por sua estrela</option>
+                <option value="errado">Ele foi atingido por um cometa a milhões dde anos</option>
+                <option value="errado">Pois sua lua está o puxando para si</option>
+            </select>
+            `
+        } else if (pergunta == 5) {
+            acerto++
+            tela.innerHTML = `
+            <h1>PERGUNTA 5</h1>
+
+            <p>Qual a peculiaridade de Kepler-1b?</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="errado">Ele tem um formato diferente dos demais</option>
+                <option value="errado">Ele tem um núcleo de diamante</option>
+                <option value="certo">Ele é extremamente escuro</option>
+                <option value="errado">Ele é um planeta oceanico</option>
+            </select>
+            `
+        } else if (pergunta == 6) {
+            acerto++
+            tela.innerHTML = `
+            <h1>PERGUNTA 6</h1>
+
+            <p>Como J1407b consegue ter anéis tão gigantes?</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="certo">Ele é muito massivo</option>
+                <option value="errado">Ele está longe de qualquer estrela</option>
+                <option value="errado">Ele tem uma rotação muito lenta</option>
+            </select>
+            `
+        } else if (pergunta == 7) {
+            acerto++
+            tela.innerHTML = `
+            <h1>PERGUNTA 7</h1>
+
+            <p>Como é decidido o nome dos planetas</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="errado">Pelo nome de sua estrela + posição dele em relação a ela (de 'a' à 'z')</option>
+                <option value="errado">É dado o nome em homenagem ao satélite que o descobriu</option>
+                <option value="errado">É dado ao nome do cientista que fez a descoberta</option>
+                <option value="certo">Pelo nome de sua estrela + a ordem de sua descoberta (de 'a' à 'z')</option>
+            </select>
+            `
+        } else {
+            acerto++
+
+            if (acerto <= 3) {
+                mensagem = `você precisa estudar um pouco mais!`
+            } else if (acerto >= 6) {
+                mensagem = `você está de parabéns!`
+            } else {
+                mensagem = `você está na média, se aprimore ainda mais!`
+            }
+
+            tela.innerHTML = `
+            <h1>Você terminou!</h1>
+            <label>Você acertou ${acerto}/7, ${mensagem}</label>
+            <div class="botoes">
+            <button onclick="repetir()">TENTAR DE NOVO</button>
+            <button onclick="voltar()">ESTUDAR MAIS</button>
+            </div>
+            `
+            mandarDados()
+        }
+    }
+
+    function errou() {
+        pergunta++
+
+        if (pergunta == 1) {
+            tela.innerHTML = `
+            <h1>PERGUNTA 1</h1>
+
+            <p>Qual desses exoplanetas é conhecido como "Super-Saturno"?</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="errado">Kepler-1b</option>
+                <option value="certo">J1407 b</option>
+                <option value="errado">55 Cracri e</option>
+                <option value="errado">TOI-1452</option>
+            </select>
+            `
+        } else if (pergunta == 2) {
+            tela.innerHTML = `
+            <h1>PERGUNTA 2</h1>
+
+            <p>O que é um exoplaneta?</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="errado">Planetas que podem ter vida</option>
+                <option value="errado">Qualquer planeta que não tenha lua</option>
+                <option value="certo">Um planeta que não estão no Sistema Solar</option>
+                <option value="errado">Um planeta com mais de 23 luas</option>
+            </select>
+            `
+        } else if (pergunta == 3) {
+            tela.innerHTML = `
+            <h1>PERGUNTA 3</h1>
+
+            <p>Porquê Janssen está tão perto de sua estrela?</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="certo">Ele foi puxado pela sua forte gravidade</option>
+                <option value="errado">Ele já nasceu perto da estrela</option>
+                <option value="errado">Ele foi atingido por um meteoro, que o empurrou</option>
+            </select>
+            `
+        } else if (pergunta == 4) {
+            tela.innerHTML = `
+            <h1>PERGUNTA 4</h1>
+
+            <p>WASP-12b tem um formato estranho pois...</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="errado">Ele gira muito rápido em volta de sua estrela</option>
+                <option value="certo">Ele está sendo consumido por sua estrela</option>
+                <option value="errado">Ele foi atingido por um cometa a milhões dde anos</option>
+                <option value="errado">Pois sua lua está o puxando para si</option>
+            </select>
+            </select>
+            `
+        } else if (pergunta == 5) {
+            tela.innerHTML = `
+            <h1>PERGUNTA 5</h1>
+
+            <p>Qual a peculiaridade de Kepler-1b?</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="errado">Ele tem um formato diferente dos demais</option>
+                <option value="errado">Ele tem um núcleo de diamante</option>
+                <option value="certo">Ele é extremamente escuro</option>
+                <option value="errado">Ele é um planeta oceanico</option>
+            </select>
+            `
+        } else if (pergunta == 6) {
+            tela.innerHTML = `
+            <h1>PERGUNTA 6</h1>
+
+            <p>Como J1407b consegue ter anéis tão gigantes?</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="certo">Ele é muito massivo</option>
+                <option value="errado">Ele está longe de qualquer estrela</option>
+                <option value="errado">Ele tem uma rotação muito lenta</option>
+            </select>
+            `
+        } else if (pergunta == 7) {
+            tela.innerHTML = `
+            <h1>PERGUNTA 7</h1>
+
+            <p>Como é decidido o nome dos planetas</p>
+
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
+                <option selected disabled hidden>RESPONDA!</option>
+                <option value="errado">Pelo nome de sua estrela + posição dele em relação a ela (de 'a' à 'z')</option>
+                <option value="errado">É dado o nome em homenagem ao satélite que o descobriu</option>
+                <option value="errado">É dado ao nome do cientista que fez a descoberta</option>
+                <option value="certo">Pelo nome de sua estrela + a ordem de sua descoberta (de 'a' à 'z')</option>
+            </select>
+            `
+        }  else {
+
+            if (acerto <= 3) {
+                mensagem = `você precisa estudar um pouco mais!`
+            } else if (acerto >= 6) {
+                mensagem = `você está de parabéns!`
+            } else {
+                mensagem = `você está na média, se aprimore ainda mais!`
+            }
+
+            tela.innerHTML = `
+            <h1>Você terminou!</h1>
+            <label>Você acertou ${acerto}/7, ${mensagem}</label>
+            <div class="botoes">
+            <button onclick="repetir()">TENTAR DE NOVO</button>
+            <button onclick="voltar()">ESTUDAR MAIS</button>
+            </div>
+            `
+
+            mandarDados()
+        }
+    }
+
+    function escolheu() {
+        resposta = selectResposta.value
+
+        if (resposta == 'certo') {
+            acertou()
+        } else {
+            errou()
+        }
+    }
+
+    function mandarDados() {
+        var idEstudo = 1002;
+        var idUsuario = sessionStorage.ID_USUARIO;
+        
+        fetch("/usuarios/mandarAcertos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idEstudoServer: idEstudo,
+                idUsuarioServer: idUsuario,
+                acertosServer: acerto
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
+</script>
