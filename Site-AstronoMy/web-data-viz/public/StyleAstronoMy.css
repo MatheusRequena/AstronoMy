@@ -652,9 +652,9 @@ input::-webkit-inner-spin-button {
     background-repeat: no-repeat;
     background-size: 100%;
     background-color: black;
-    width: 360px;
-    height: 360px;
-    margin-right: 4%;
+    width: 340px;
+    height: 340px;
+    margin-right: 3%;
     border: #563872 solid 10px;
     border-radius: 20%;
 }
@@ -669,11 +669,13 @@ input::-webkit-inner-spin-button {
 }
 
 .perfil .ficha .campo label {
+    font-size: 21px;
     color: #4d2b6d;
     font-weight: bold;
 }
 
 .perfil .ficha .grafico {
+    margin-top: 7%;
     background-color: none;
     color: black;
 }
@@ -689,13 +691,11 @@ input::-webkit-inner-spin-button {
     text-decoration: underline;
     width: 100%;
     text-align: center;
-    margin-left: 2%;
 }
 
 .tituloDireita {
     display: flex;
     justify-content: end;
-    margin-right: 2%;
     color: #bbabe8;
     font-size: 50px;
     text-decoration: underline;
@@ -710,14 +710,12 @@ input::-webkit-inner-spin-button {
     text-align: left;
     font-size: 30px;
     width: 60%;
-    margin-left: 2%;
 }
 
 .paragrafoDireita {
     text-align: right;
     font-size: 30px;
     width: 60%;
-    margin-right: 2%;
 }
 
 
@@ -740,6 +738,8 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     align-items: start;
     padding-top: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
 }
 
 .telaPeso .explicacao {
@@ -754,6 +754,8 @@ input::-webkit-inner-spin-button {
     margin-bottom: 2%;
     padding-top: 2%;
     padding-bottom: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
     border-top: #4d2b6d 5px solid;
     border-bottom: #4d2b6d 5px solid;
 }
@@ -766,6 +768,8 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     align-items: start;
     padding-top: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
 }
 
 .telaPeso .linha {
@@ -827,6 +831,10 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
+.telaPeso b {
+    background-color: #4d2b6d;
+}
+
 .telaPeso .calculadora .resposta {
     color: #F66027;
     font-family: Trispace;
@@ -836,10 +844,12 @@ input::-webkit-inner-spin-button {
     margin-bottom: 3%;
 }
 
-
-.telaPeso b {
-    background-color: #4d2b6d;
+.telaPeso .calculadora .resposta u {
+    text-decoration: none;
+    font-weight: bold;
 }
+
+
 
 
 
@@ -859,6 +869,7 @@ input::-webkit-inner-spin-button {
 
 
 .telaSistemaSolar .sol {
+    padding-right: 2%;
     background-image: url();
     background-repeat: no-repeat;
     background-size: 100%;
@@ -889,12 +900,14 @@ input::-webkit-inner-spin-button {
 }
 
 .telaSistemaSolar .mercurio {
+    padding-left: 2%;
     background-image: url();
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 .telaSistemaSolar .venus {
+    padding-right: 2%;
     background-image: url();
     background-repeat: no-repeat;
     background-size: 100%;
@@ -904,12 +917,14 @@ input::-webkit-inner-spin-button {
 }
 
 .telaSistemaSolar .terra {
+    padding-left: 2%;
     background-image: url();
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 .telaSistemaSolar .marte {
+    padding-right: 2%;
     background-image: url();
     background-repeat: no-repeat;
     background-size: 100%;
@@ -919,12 +934,14 @@ input::-webkit-inner-spin-button {
 }
 
 .telaSistemaSolar .jupiter {
+    padding-left: 2%;
     background-image: url();
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 .telaSistemaSolar .saturno {
+    padding-right: 2%;
     background-image: url();
     background-repeat: no-repeat;
     background-size: 100%;
@@ -934,12 +951,14 @@ input::-webkit-inner-spin-button {
 }
 
 .telaSistemaSolar .urano {
+    padding-left: 2%;
     background-image: url();
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 .telaSistemaSolar .netuno {
+    padding-right: 2%;
     background-image: url();
     background-repeat: no-repeat;
     background-size: 100%;
@@ -949,6 +968,93 @@ input::-webkit-inner-spin-button {
 }
 
 
+
+/* ESTUDO EXOPLANETAS */
+.telaExoplanetas {
+    margin: 0px;
+    background-color: black;
+    color: #8C52FF;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-family: Trispace;
+}
+
+.telaExoplanetas b {
+    background-color: #4d2b6d;
+}
+
+
+.telaExoplanetas .exoplanetas {
+    padding-right: 2%;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-top: 2%;
+    border-bottom: #4d2b6d 5px solid;
+}
+
+.telaExoplanetas .titulo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 50px;
+    margin-top: 2%;
+}
+
+.telaExoplanetas .subtitulo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-style: italic;
+    font-size: 30px;
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+
+.telaExoplanetas .janssen {
+    padding-left: 2%;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.telaExoplanetas .superSaturno {
+    padding-right: 2%;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.telaExoplanetas .planetaDeformado {
+    padding-left: 2%;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.telaExoplanetas .planetaOceanico {
+    padding-right: 2%;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.telaExoplanetas .planetaBlackout {
+    padding-left: 2%;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 
 /* QUIZ PESO */
 
@@ -1016,7 +1122,7 @@ input::-webkit-inner-spin-button {
     color: #F66027;
 }
 
-.quizPeso select {
+.quizPeso .resposta {
     text-align: center;
     font-size: 20px;
     font-style: italic;

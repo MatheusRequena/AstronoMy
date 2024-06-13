@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="StyleAstronoMy.css">
     <link rel="icon" href="img/GalaxiaAstronoMy.png">
     <script src="./js/sessao.js"></script>
-    <title>AstronoMy | Sistema Solar</title>
+    <title>AstronoMy | Quiz Peso</title>
 </head>
 
 <body class="quizPeso" onload="validarSessao()">
@@ -19,7 +19,7 @@
     <div id="tela" class="tela">
         <h1>QUANDO SE SENTIR PRONTO, COMECE A RESPONDER AS PERGUNTAS!</h1>
         <h3>Clique em "responda" para escolher a alternativa que deseja</h3>
-        
+
         <div class="botoes">
             <button onclick="estudo()">ESTUDAR</button>
             <button onclick="acertou()">COMEÇAR</button>
@@ -67,7 +67,7 @@
 
             <p>O seu peso realmente muda em outros planetas?</p>
 
-            <select id="selectResposta" onchange="escolheu()">
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
                 <option selected disabled hidden>RESPONDA!</option>
                 <option value="certo">Sim</option>
                 <option value="errado">Não</option>
@@ -81,7 +81,7 @@
 
             <p>O que é peso?</p>
 
-            <select id="selectResposta" onchange="escolheu()">
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
                 <option selected disabled hidden>RESPONDA!</option>
                 <option value="errado">É a massa / gravidade</option>
                 <option value="errado">É a massa de um corpo</option>
@@ -96,7 +96,7 @@
 
             <p>Qual a gravidade da terra?</p>
 
-            <select id="selectResposta" onchange="escolheu()">
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
                 <option selected disabled hidden>RESPONDA!</option>
                 <option value="errado">10 m/s²</option>
                 <option value="certo">9.8 m/s²</option>
@@ -111,7 +111,7 @@
 
             <p>Planetas com alta gravidade...</p>
 
-            <select id="selectResposta" onchange="escolheu()">
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
                 <option selected disabled hidden>RESPONDA!</option>
                 <option value="errado">Nos deixam mais leves</option>
                 <option value="certo">Nos deixam mais pesados</option>
@@ -126,7 +126,7 @@
 
             <p>Por que um astronauta na lua consegue pular tão alto?</p>
 
-            <select id="selectResposta" onchange="escolheu()">
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
                 <option selected disabled hidden>RESPONDA!</option>
                 <option value="errado">Não existe gravidade para puxá-lo</option>
                 <option value="errado">Pois a gravidade é muito alta</option>
@@ -153,6 +153,7 @@
             <button onclick="voltar()">ESTUDAR MAIS</button>
             </div>
             `
+            mandarDados()
         }
     }
 
@@ -165,7 +166,7 @@
 
             <p>O seu peso realmente muda em outros planetas?</p>
 
-            <select id="selectResposta" onchange="escolheu()">
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
                 <option selected disabled hidden>RESPONDA!</option>
                 <option value="certo">Sim</option>
                 <option value="errado">Não</option>
@@ -178,7 +179,7 @@
 
             <p>O que é peso?</p>
 
-            <select id="selectResposta" onchange="escolheu()">
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
                 <option selected disabled hidden>RESPONDA!</option>
                 <option value="errado">É a massa / gravidade</option>
                 <option value="errado">É a massa de um corpo</option>
@@ -192,7 +193,7 @@
 
             <p>Qual a gravidade da terra?</p>
 
-            <select id="selectResposta" onchange="escolheu()">
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
                 <option selected disabled hidden>RESPONDA!</option>
                 <option value="errado">10 m/s²</option>
                 <option value="certo">9.8 m/s²</option>
@@ -206,7 +207,7 @@
 
             <p>Planetas com muita gravidade...</p>
 
-            <select id="selectResposta" onchange="escolheu()">
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
                 <option selected disabled hidden>RESPONDA!</option>
                 <option value="errado">Nos deixam mais leves</option>
                 <option value="certo">Nos deixam mais pesados</option>
@@ -220,7 +221,7 @@
 
             <p>Por que um astronauta na lua consegue pular tão alto?</p>
 
-            <select id="selectResposta" onchange="escolheu()">
+            <select id="selectResposta" onchange="escolheu()" class= "resposta">
                 <option selected disabled hidden>RESPONDA!</option>
                 <option value="errado">Não existe gravidade para puxá-lo</option>
                 <option value="errado">Pois a gravidade é muito alta</option>
@@ -246,6 +247,8 @@
             <button onclick="voltar()">ESTUDAR MAIS</button>
             </div>
             `
+
+            mandarDados()
         }
     }
 
@@ -257,6 +260,33 @@
         } else {
             errou()
         }
+    }
+
+    function mandarDados() {
+        var idEstudo = 1000;
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        alert(idUsuario)
+        
+        fetch("/usuarios/mandarAcertos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idEstudoServer: idEstudo,
+                idUsuarioServer: idUsuario,
+                acertosServer: acerto
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
     }
 
 </script>
