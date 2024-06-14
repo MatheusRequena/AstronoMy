@@ -10,7 +10,7 @@
     <title>AstronoMy | Quiz Peso</title>
 </head>
 
-<body class="quizPeso" onload="validarSessao()">
+<body class="quiz" onload="validarSessao()">
 
     <!-- Header -->
     <div class="header" id="header"></div>
@@ -267,7 +267,6 @@
         var idEstudo = 1000;
         var idUsuario = sessionStorage.ID_USUARIO;
 
-        alert(idUsuario)
         
         fetch("/usuarios/mandarAcertos", {
             method: "POST",
@@ -288,6 +287,18 @@
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
+    }
+
+    function selecionar(){
+        var opcao = selectPerfil.value;
+
+        if(opcao == 'perfil'){
+            window.location.href = 'PerfilAstronoMy.html'
+        }
+
+        if (opcao == 'sair'){
+            limparSessao()
+        }
     }
 
 </script>

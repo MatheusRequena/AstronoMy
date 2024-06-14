@@ -164,17 +164,14 @@
 
               console.log("resposta: ", resposta);
 
-              alert('entrei no then')
               
               resposta.json()
               .then(function (respostaFormatada){
                 
                 
-                alert(respostaFormatada.length)
               console.log(respostaFormatada)
 
               for(contagem = 0 ; contagem < respostaFormatada.length ; contagem++){
-                alert("entrei no for")
                 var dado = respostaFormatada[contagem]
   
                 if(idUsuario = dado.fkUsuario){
@@ -183,7 +180,6 @@
                 var fkEstudo = dado.fkEstudo
                 var qtdAcertos = Number(dado.acertos)
   
-                alert(mes)
                 if(mes == 0){
                   acertosJaneiro += qtdAcertos
                 } else if (mes == 1){
@@ -210,7 +206,6 @@
                   acertosDezembro += qtdAcertos
                 }
               
-                alert(qtdAcertos)
                 if(fkEstudo = 1000)
                 respondidas += 5
               }else if(fkEstudo = 1001){

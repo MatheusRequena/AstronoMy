@@ -199,7 +199,7 @@ const desempenho = new Chart(document.getElementById("desempenho"), config);
 
             var dado = resposta.resultado[contagem];
 
-            if ((idUsuario = dado.fkUsuario)) {
+            if ((idUsuario == dado.fkUsuario)) {
               var data = new Date(dado.dtTentativa);
               var mes = data.getMonth();
               var fkEstudo = dado.fkEstudo;
@@ -231,17 +231,16 @@ const desempenho = new Chart(document.getElementById("desempenho"), config);
                 acertosDezembro += qtdAcertos;
               }
 
-              if ((fkEstudo = 1000)) respondidas += 5;
-            } else if ((fkEstudo = 1001)) {
+              if ((fkEstudo == 1000)){ respondidas += 5;
+            } else if ((fkEstudo == 1001)) {
               respondidas += 13;
-            } else if ((fkEstudo = 1002)) {
+            } else if ((fkEstudo == 1002)) {
               respondidas += 7;
-            } else if ((fkEstudo = 1003)) {
-              respondidas += 6;
             }
 
             acertosTotal += qtdAcertos;
           }
+        }
 
           carregar_dados();
         });
